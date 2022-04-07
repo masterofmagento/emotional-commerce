@@ -1,0 +1,449 @@
+<?php
+$config = $this->getConfig();
+if ($config['campaign'] && $this->canShow() && $config['enabled']) :
+    ?>
+    <?php if($config['button-banner'] ==''):  ?>
+        <div class="main-qr-button-wrapper <?= $config['button-padding'] ?>">
+            <button type="button" id="qr-modal-btn" class="action primary admin-slider-poup-close checkout" style="
+            <?php if ($config['button-background']) {
+                echo 'background-color: ' . $config['button-background'] . ';border-color:' . $config['button-background'] . ';';
+            } ?>
+            <?php if ($config['button-color']) {
+                echo 'color: ' . $config['button-color'] . ';';
+            } ?>
+            ">
+            <span class="gift-box-svg"><svg viewBox="0 0 821 872" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M771.061 325.131C774.954 325.131 778.14 321.945 778.14 318.052V282.661C778.14 251.34 752.835 226.035 721.513 226.035H572.339C594.282 206.57 608.261 178.965 608.261 148.174C608.261 89.6013 558.182 42 496.601 42C460.149 42 429.535 59.1648 410.07 90.4861C390.605 59.1648 359.991 42 323.538 42C261.957 42 211.878 89.6013 211.878 148.174C211.878 178.965 225.681 206.57 247.801 226.035H98.6261C67.3048 226.035 42 251.34 42 282.661V318.052C42 321.945 45.1852 325.131 49.0783 325.131H771.061ZM496.601 91.5479C529.515 91.5479 556.236 116.853 556.236 148.174C556.236 179.495 529.515 204.8 496.601 204.8C463.688 204.8 436.967 204.8 436.967 204.8C436.967 119.861 463.688 91.5479 496.601 91.5479ZM383.172 204.8C383.172 204.8 356.452 204.8 323.538 204.8C290.624 204.8 263.904 179.495 263.904 148.174C263.904 116.853 290.624 91.5479 323.538 91.5479C356.452 91.5479 383.172 119.861 383.172 204.8ZM771.061 367.131H49.0783C22.0164 367.131 0 345.114 0 318.052V282.661C0 228.278 44.2435 184.035 98.6261 184.035H174.493C171.456 172.391 169.878 160.35 169.878 148.174C169.878 66.4705 238.81 0 323.538 0C355.869 0 385.7 10.1325 410.07 28.7422C434.439 10.1325 464.27 0 496.601 0C581.33 0 650.261 66.4705 650.261 148.174C650.261 160.337 648.674 172.378 645.619 184.035H721.513C775.896 184.035 820.14 228.278 820.14 282.661V318.052C820.14 345.114 798.123 367.131 771.061 367.131ZM482.209 162.8H496.601C506.325 162.8 514.236 156.239 514.236 148.174C514.236 140.109 506.325 133.548 496.601 133.548C491.852 133.548 485.844 142.849 482.209 162.8ZM323.538 133.548C313.814 133.548 305.904 140.109 305.904 148.174C305.904 156.239 313.814 162.8 323.538 162.8H337.931C334.296 142.849 328.288 133.548 323.538 133.548Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M72.4694 366.139C64.6834 366.139 58.3129 372.51 58.3129 380.296V773.139C58.3129 804.284 83.7947 829.765 114.939 829.765H718V871.766H114.939C60.5564 871.766 16.3129 827.522 16.3129 773.139V380.296C16.3129 349.331 41.5046 324.139 72.4694 324.139V366.139Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M773.368 380.157C773.368 372.37 766.351 366 757.776 366V324C791.88 324 819.626 349.192 819.626 380.157V773C819.626 827.383 770.897 871.626 711 871.626V829.626C745.302 829.626 773.368 804.145 773.368 773V380.157Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M409.14 771.25C511.865 771.25 595.14 687.975 595.14 585.25C595.14 482.525 511.865 399.25 409.14 399.25C306.415 399.25 223.14 482.525 223.14 585.25C223.14 687.975 306.415 771.25 409.14 771.25Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M517.634 567.946L369.264 480.231C357.209 473.107 338.747 480.02 338.747 497.639V673.027C338.744 676.596 339.686 680.102 341.477 683.189C343.269 686.276 345.845 688.834 348.945 690.602C352.045 692.37 355.558 693.287 359.127 693.257C362.696 693.228 366.193 692.254 369.264 690.435L517.634 602.76C520.662 600.974 523.172 598.429 524.916 595.376C526.659 592.323 527.576 588.868 527.576 585.352C527.576 581.836 526.659 578.381 524.916 575.329C523.172 572.276 520.662 569.73 517.634 567.944V567.946Z" fill="<?php echo $config['button-background'] ?>"></path></svg></span>
+            <span><?= $config['button-title'] ?></span>
+        </button>
+    </div>
+<?php endif;  ?>
+<?php if($config['button-banner'] !=''):  ?>
+    <div class="front-button <?= $config['button-padding'] ?>">
+        <div class="front-button-wrap-1">
+            <img id="qr-modal-btn" src="<?php echo $block->getMediaUrl().$config['button-banner'];?>" alt=""/>        
+        </div>
+    </div>
+<?php endif;  ?>  
+<div class="admin-popup-description" style="display: none;">
+    <p class="popup-description-show">
+        <?= $config['popup-description'] ?>
+    </p>
+</div>
+<div id="qr-modal-content">
+    <div class="modal-inner-content">
+        <div class="qr-video">
+            <div class="modal-header-wrap">
+             <?php if(isset($config['popup-banner-logo']) && $config['popup-banner-logo'] !=''):  ?>
+               <?php if (strpos($config['popup-banner-logo'], "http") === 0): ?>
+                <div class="poup-logo"> <img src="<?= $config['popup-banner-logo']; ?>" alt=""></div>
+            <?php endif; ?>
+            <?php if (strpos($config['popup-banner-logo'], "http") !== 0): ?>
+                <div class="poup-logo"> <img src="<?= $block->getBaseUrl() . "media/" . $config['popup-banner-logo']; ?>" alt=""></div> <?php endif; ?>
+            <?php endif; ?>
+            <h2 class="popup-title"><?= $config['popup-title-text'] ?></strong>
+                <?php if($config['popup-description'] != ''):?> 
+                    <sup><button class="fa fa-info-circle" id="btn-desc">i</button></sup>
+                <?php endif;?>
+            </h2>
+            <p><?= $config['occasion-text'] ?></p>
+        </div>
+        <form method="POST" id="ecForm" enctype="multipart/form-data" action="<?= $this->getUrl('ecqr/index/post'); ?>" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+            <div class="form-wrapper">
+                <?php
+                $themes = $block->getThemes($config['key'], $config['secret'], $config['domain']);
+                if ($config['theme_ids']) {
+                    $theme_ids = json_decode($config['theme_ids'], true);
+                }
+                ?>
+                <?php $count = 0; ?>
+                <?php foreach ($themes['data'] as $theme) :
+                    if (isset($theme_ids) && isset($theme_ids['theme_id'])) {
+                        if (in_array($theme['theme_id'], $theme_ids['theme_id'])) : ?> 
+                            <?php $count++;?>                                 
+                        <?php endif; }
+                    endforeach; ?>  
+                    <div class="theme-list-group-slider-wrap recording-popup-open"> 
+                        <div class="theme-list-group group-slider">                             
+                            <?php foreach ($themes['data'] as $theme) :
+                                if (isset($theme_ids) && isset($theme_ids['theme_id'])) {
+                                    if (in_array($theme['theme_id'], $theme_ids['theme_id'])) : ?>                                        
+                                        <div class="theme-list">
+                                            <div class="theme-list-wrap">
+                                                <div class="theme-list-image">
+                                                    <img src="<?= $theme['screenshot'] ?>">
+                                                </div>
+                                                <div class="theme-details">
+                                                    <h4><?= $theme['name'] ?></h4>
+                                                    <input type="hidden" class="dynamicThemeId" name="dynamicThemeId" value="<?= $theme['theme_id'] ?>">
+                                                    <input type="hidden" class="sliderThemeId" name="sliderThemeId"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif;
+                                }
+                            endforeach; ?>
+                        </div>
+                        <div class="slider-mobile-image">
+                            <img src="<?php echo $block->getViewFileUrl('Ec_Qr::images/portrait-frame.png'); ?>" alt="Mobile Image"> 
+                        </div>
+                    </div>
+
+                    <p class="modal-text" style="display: none;">
+                        <?= $config['popup-description'] ?>
+                    </p>
+                    <fieldset class="fieldset">
+                        <div class="field name required">
+                            <div class="record-wrapper">
+                                <video id="live" muted class="live_video mymodal-img" style="display:none" preload="metadata" playsinline></video>
+                                <span class="live_video mymodal-recording-tag" style="display:none">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="14" height="20" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.955 31.955" style="display: inline-block;vertical-align: bottom;margin-right: 3px;" xml:space="preserve">
+                                        <g>
+                                            <path style="fill:#310303;" d="M27.25,4.655C20.996-1.571,10.88-1.546,4.656,4.706C-1.571,10.96-1.548,21.076,4.705,27.3
+                                            c6.256,6.226,16.374,6.203,22.597-0.051C33.526,20.995,33.505,10.878,27.25,4.655z"></path>
+                                            <path style="fill:#310303;" d="M13.288,23.896l-1.768,5.207c2.567,0.829,5.331,0.886,7.926,0.17l-0.665-5.416
+                                            C17.01,24.487,15.067,24.5,13.288,23.896z M8.12,13.122l-5.645-0.859c-0.741,2.666-0.666,5.514,0.225,8.143l5.491-1.375
+                                            C7.452,17.138,7.426,15.029,8.12,13.122z M28.763,11.333l-4.965,1.675c0.798,2.106,0.716,4.468-0.247,6.522l5.351,0.672
+                                            C29.827,17.319,29.78,14.193,28.763,11.333z M11.394,2.883l1.018,5.528c2.027-0.954,4.356-1.05,6.442-0.288l1.583-5.137
+                                            C17.523,1.94,14.328,1.906,11.394,2.883z"></path>
+                                            <circle style="fill:#310303;" cx="15.979" cy="15.977" r="6.117"></circle>
+                                        </g>
+                                        </svg><?= $config['recording-clip-text'] ?>
+                                    </span>
+                                    <video id="recording" controls class="video_display mymodal-img" style="display:none" preload="metadata" playsinline></video>
+                                    <span class="video_display mymodal-recording-tag" style="display:none">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block;vertical-align: bottom;margin-right: 3px;"><path d="M16 16c0 1.104-.896 2-2 2h-12c-1.104 0-2-.896-2-2v-8c0-1.104.896-2 2-2h12c1.104 0 2 .896 2 2v8zm8-10l-6 4.223v3.554l6 4.223v-12z"></path></svg><?= $config['video-recorded-text'] ?>
+                                  </span>
+                              </div>
+                              <div class="control modal-text modal-bottom-text">
+                                <div class="upload-button" id="record" style="<?php if ($config['button-color']) {
+                                    echo 'color: ' . $config['record-upload-butoon-text-color'] . ';';
+                                } ?>
+                                <?php if ($config['record-upload-butoon-primary-color']) {
+                                    echo 'background-color: ' . $config['record-upload-butoon-primary-color'] . ';background:linear-gradient(-131deg, ' . $config['record-upload-butoon-secondary-color'] . ' 11%, ' . $config['record-upload-butoon-primary-color'] . ' 72%)';
+                                } ?>">
+                                <?= $config['video-record-button-text'] ?>
+                            </div>
+                            <div class="upload-button" id="stop">
+                                <?= $config['video-stop-button-text'] ?>
+                            </div>
+                            <div class="upload-button" id="remove" style="display:none;">
+                                <?= $config['remove-video-text'] ?>
+                            </div>
+                            <span class="mymodal-recording-tag" id="filename" style="display:none;"></span>
+                            <div class="upload-button" id="upload-button" style="
+                            <?php if ($config['button-color']) {
+                                echo 'color: ' . $config['record-upload-butoon-text-color'] . ';';
+                            } ?>
+                            <?php if ($config['record-upload-butoon-primary-color']) {
+                                echo 'background-color: ' . $config['record-upload-butoon-primary-color'] . ';background:linear-gradient(-131deg, ' . $config['record-upload-butoon-secondary-color'] . ' 11%, ' . $config['record-upload-butoon-primary-color'] . ' 72%)';
+                            } ?>
+                            
+                            ">
+                            <?= $config['upload-button-text'] ?>
+                        </div>
+                        <input id="blob" name="blob" type="hidden" />
+                        <input name="video" id="video" class="input-text" type="file" data-validate="{required:true}" accept=" video/*"/>
+                    </div>
+                </div>                            
+                <div class="actions-toolbar form-submit-btn">
+                  <span class="mymodal-recording-tag error" style="display:none">
+                      <?= $config['video-error-text'] ?>
+                  </span>
+                  <div id="submit" class="action submit primary" style="<?php if ($config['button-color']) {
+                      echo 'color: ' . $config['submit-button-text-color'] . ';';
+                  } ?>
+                  <?php if ($config['submit-button-primary-color']) {
+                      echo 'background-color: ' . $config['submit-button-primary-color'] . ';background:linear-gradient(-131deg, ' . $config['submit-button-secondary-color'] . ' 11%, ' . $config['record-upload-butoon-primary-color'] . ' 72%)';
+                  } ?>">
+                  <span><?= $config['video-submit-text'] ?></span>
+              </div>
+          </div>
+      </fieldset>
+  </div>
+</form>
+<!-- Second popup - Thank you message start here -->                
+<div id="thank_you_popup" style="display: none;">
+  <p class="video_success_msg">Video Uploaded Successfully</p>
+  <button type="submit">Close</button>
+</div>
+<!-- Second popup - Thank you message end here--> 
+</div>
+</div>
+</div>
+<script type="text/javascript">
+       // require(["jquery", "Magento_Ui/js/modal/modal", "loader", "mediaRecorder"], function($, modal) {
+           require(["jquery", "Magento_Ui/js/modal/modal", "loader"], function($, modal) {
+            var options = {
+                type: 'popup', // popup or slide
+                responsive: true, // true = on smaller screens the modal slides in from the right
+                title: '',
+                innerScroll: true,
+                modalClass: 'ec-main-cart-popup',
+                buttons: []
+            };
+            var forcePopup = '<?php echo $config["force_popup"]; ?>';
+            
+            var popup = modal(options, $('#qr-modal-content'));
+            $("#qr-modal-btn").click(function() {
+                $('#qr-modal-content').show();
+                $('#qr-modal-content').modal('openModal');
+            });
+            if(forcePopup == 1){
+             $('#qr-modal-content').show();
+             $('#qr-modal-content').modal('openModal');
+         }
+
+         $('#video').change(function() {
+            var file = $('#video')[0].files[0].name;  
+            if($('#video')[0].files[0].size > 2000000) {
+                alert("Please upload file less than 2MB. Thanks!!");    
+                $(this).val('');
+                $('#filename').hide();
+            }else{
+               $('#filename').show().text(file);
+           } 
+       });
+         $('#submit').on('click', function(e) {
+            $('body').trigger('processStart');
+            if ($('#blob').val() == 1) {                   
+                var data = new FormData();
+                data.append('file', blob_data, 'file.webm');
+                $.ajax({
+                    url: "<?php echo $this->getUrl('ecqr/index/upload'); ?>",
+                    type: 'POST',
+                    data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        $('#blob').val(data.name);
+                        $('#ecForm').submit();
+                           // alert('on upload');
+                         /*var options = {
+                             type: 'popup', // popup or slide
+                             responsive: true, // true = on smaller screens the modal slides in from the right
+                             title: '',
+                             innerScroll: false,
+                             modalClass: 'thankyou_msg_popup',
+                             buttons: []
+                         };                    
+                         var popup = modal(options, $('#thank_you_popup')); 
+                         $("#thank_you_popup").modal("openModal");    */ 
+                     }
+                 });
+            } else if ($('#video').get(0).files.length !== 0) {                     
+                $('#ecForm').submit();
+                    //alert('on record');
+                   /* var options = {
+                        type: 'popup', // popup or slide
+                        responsive: true, // true = on smaller screens the modal slides in from the right
+                        title: '',
+                        innerScroll: false,
+                        modalClass: 'thankyou_msg_popup',
+                        buttons: []
+                    };                    
+                    var popup = modal(options, $('#thank_you_popup')); 
+                    $("#thank_you_popup").modal("openModal");    */                  
+
+                } else {
+                    $('.error').show();
+                    $('body').trigger('processStop');
+                }
+            });
+         $("#close").on("click", function() {
+            $('#qr-modal-content').modal('closeModal');
+        });
+         $("#record").click(function(){ 
+          $(".recording-popup-open").addClass("active");
+      });
+         $("#remove").click(function(){
+          $(".recording-popup-open").removeClass("active");
+      });
+         $('#upload-button').on('click', function() {
+            $('#blob').val('');
+            $('#live').hide();
+            $('.video_display').hide();
+            $('#video').trigger('click');
+            $('.error').hide();
+        });
+         $('#remove').on('click', function() {
+            $('#filename').text('');
+            $('#video').val(null);
+                $('#upload-button').show(); //Remove
+                $(".video_display").hide();
+                $(this).hide();
+                var video = document.getElementById('recording');
+                video.pause();
+                $('#blob').val('');
+            });
+         var recordButton, stopButton, recorder, liveStream;
+         recordButton = document.getElementById('record');
+         stopButton = document.getElementById('stop');
+         recordButton.addEventListener('click', startRecording);
+         stopButton.addEventListener('click', stopRecording);
+
+         var options = {
+                    type: 'popup', // popup or slide
+                    responsive: true, // true = on smaller screens the modal slides in from the right
+                    title: '',
+                    innerScroll: false,
+                    modalClass:'ec-sub-cart-popup',
+                    buttons: [],
+                    click: function (){                        
+                       this.closeModal();
+                   }
+               };
+               var popup = modal(options, $('.admin-popup-description'));
+               $("#btn-desc").click(function() {
+                $('.admin-popup-description').show();  
+                $('.admin-popup-description').modal('openModal');                   
+            });
+
+               document.addEventListener('keydown', (event) => {
+                  if (event.key === 'Escape') {
+                   $('.admin-popup-description').modal('closeModal');
+               }
+           })
+             //To check supported devices
+             $("#qr-modal-btn").click(function () { 
+                navigator.mediaDevices.getUserMedia({
+                    audio: true,
+                    video: true
+                })
+                .then(function (stream) {
+                    try {
+                        liveStream = stream;
+                        recorder = new MediaRecorder(liveStream);
+                        if ($('#recording').attr('src') === undefined && $('#selectedFile').prop('files').length === 0) {
+                            $('#record').show();
+                            $('#upload-button').css('max-width','45%');
+                            console.log('Device supported'); 
+                        }
+                        stream.getTracks().forEach(function (track) {
+                            track.stop();
+                        });
+                    } catch (error) {
+                      
+                    }
+
+                }).catch(function (err) {
+                    $('#record').hide();
+                    $('#upload-button').css('max-width', '100%');
+                    console.log('Device not supported'); 
+                });
+            });    
+                //To check supported devices code end here
+                
+
+                function startRecording() {
+                    navigator.mediaDevices.getUserMedia({
+                        audio: true,
+                        video: true
+                    })
+                    .then(function(stream) {
+                        liveStream = stream;
+                        var liveVideo = document.getElementById('live');
+                        liveVideo.srcObject = stream;
+                        liveVideo.play();
+                        recorder = new MediaRecorder(liveStream);
+                        recorder.addEventListener('dataavailable', onRecordingReady);
+                        $(".video_display").hide();
+                        $("#popup_image").hide();
+                        $(".live_video").show();
+                        $("#upload-file-btn").hide();
+                        $("#record").hide();
+                        $("#stop").show();
+                        $("#filename").hide().text('');
+                        $('#video').val(null);
+                        $('#upload-button').hide();
+                        recorder.start();
+                        $('#submit').hide();
+                        $('.error').hide();
+                        
+                    });
+                }
+
+                function stopRecording() {
+                    recorder.stop();
+                    $("#record").show();
+                    $("#stop").hide();
+                    $('#remove').show();
+                    $('#upload-file-btn').hide();
+                    $('#submit').show();
+                }
+
+                function onRecordingReady(e) {
+                    var video = document.getElementById('recording');
+                    video.src = URL.createObjectURL(e.data);
+                    video.play();
+                    $(".video_display").show();
+                    $(".live_video").hide();
+                    blob_data = e.data;
+                    $('#blob').val(1);
+                    $('#remove').show();
+                }
+            });
+        </script>
+        <script>
+           require([
+            'jquery',
+            'slick'
+            ], function($) {
+                $(document).ready(function() {
+                var count = "<?php echo $count; ?>";//$(".theme-list-group.group-slider").slick("getSlick").slideCount;
+                /*if(count <= 3){
+                var numberCount = 1;    
+                }else{
+                    var numberCount = 3;    
+                }
+                */      
+                if(count < 3){
+                    $(".theme-list-group.group-slider").slick({
+                        dots: false,                    
+                        speed:600,
+                    /*slidesToShow: 2,
+                    slidesToScroll: 1,*/
+                    centerMode: true,
+                    infinite: false,
+                    variableWidth: true,
+                    centerPadding: '00px',
+                    responsive: [{
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    }]
+                }); 
+                }
+                if(count >= 3){
+                    $(".theme-list-group.group-slider").slick({
+                        dots: false,                    
+                        speed:600,
+                    /*slidesToShow: 2,
+                    slidesToScroll: 1,*/
+                    centerMode: true,
+                    infinite: true,
+                    variableWidth: true,
+                    centerPadding: '00px',
+                    responsive: [{
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    }]
+                });
+                }             
+                $('.theme-list-group.group-slider').on('afterChange', function() {
+                    $(".slick-current").each(function() {    
+                        var themeId = $(this).find('.dynamicThemeId').val();
+                        $(".sliderThemeId").val(themeId);
+                    });
+
+                });
+            });
+            });
+        </script>
+        <?php endif; ?>

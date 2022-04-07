@@ -1,0 +1,19 @@
+{
+    "name": "ec/qr",
+    "description": "A module that allows the customer to upload a video on the cart page as an emotional messages",
+    "type": "magento2-module",
+    "version": "1.0.7",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "~7.0.13||~7.1.0||~7.2.0||~7.3.0||~7.4.0"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Ec\\Qr\\": ""
+        }
+    }
+}
