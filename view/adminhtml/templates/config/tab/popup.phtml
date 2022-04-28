@@ -41,7 +41,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                 </li>
                 <li class="innorsub-tab-li">
                   <span class="innor-tab-title">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: rgb(0, 0, 0);"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: rgb(0, 0, 0);"></path></svg>
+                    <svg class="Settings" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: currentColor;"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor;fill: none !important;"></path>
+                    </svg>
                     <?= __('Settings'); ?> 
                     <span class="down-icon">
                       <svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,22 +76,22 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                 <div class="admin-col-inputgroup">
                                   <h4><?= __('This is where you edit your popup'); ?></h4>
                                   <div class="adminfild image-adminfild">
-                                    <label class="image-adminfild-p">Image:</label>
+                                    <label class="image-adminfild-p"><?= __('Image:'); ?></label>
                                     <?php if(isset($config['popup-banner-logo']) && $config['popup-banner-logo'] !=''):  ?>
                                       <?php if (strpos($config['popup-banner-logo'], "http") === 0): ?>
                                        <div class="image-uplode-privew">                               
-                                         <img src="<?php echo $config['popup-banner-logo']; ?>" alt="">
+                                         <img src="<?php echo $config['popup-banner-logo']; ?>" alt="" id="picpreview">
                                          <!-- <p class="default-image">Pop-up image Preview</p> -->
                                        </div> 
                                      <?php endif; ?>
                                      <?php if (strpos($config['popup-banner-logo'], "http") !== 0): ?>
-                                       <div class="image-uplode-privew">    <img src="<?= $block->getBaseUrl() . "media/" . $config['popup-banner-logo']; ?>" alt="">                                
+                                       <div class="image-uplode-privew">    <img src="<?= $block->getBaseUrl() . "media/" . $config['popup-banner-logo']; ?>" alt="" id="picpreview">                                
                                        </div> 
                                      <?php endif; ?>
                                    <?php endif;?>                                                             
                                    <?php if(!isset($config['popup-banner-logo']) && $config['popup-banner-logo'] ==''):  ?>   
                                     <div class="image-uplode-privew1" id="dynamic_banner">
-                                      <img src="<?= $block->getViewFileUrl('Ec_Qr::images/placeholder-image.png'); ?>" alt="">
+                                      <img src="<?= $block->getViewFileUrl('Ec_Qr::images/placeholder-image.png'); ?>" alt="" id="picpreview">
                                     </div>   
                                   <?php endif;  ?>  
                                   <div class="remove-banner-button">                                               
@@ -100,21 +101,21 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                </div> 
                                <div class="adminfild adminfild-fileuplod">                                                           
                                  <div class="button-fileuplod">
-                                   <p>Ideal Image ratio 4:3 (400 x 300)</p>
-                                   <input type="file" name="popup-banner-logo">
+                                   <p><?= __('Ideal Image ratio 4:3 (400 x 300)'); ?></p>
+                                   <input type="file" name="popup-banner-logo" oninput="pic.src=window.URL.createObjectURL(this.files[0]); picpreview.src=window.URL.createObjectURL(this.files[0])">
                                  </div>
                                </div> 
                                <div class="adminfild">
                                 <label><?= __('Change Title Text Here'); ?><span class="red">*</span></label>
-                                <input type="text" placeholder="Send a Personalized Video Message With Your Gift!" class="adminfild-input" value="<?= $config['popup-title-text'] ?>" name="popup-title-text" required="required">
+                                <input type="text" id="admin-popup-title" placeholder="Send a Personalized Video Message With Your Gift!" class="adminfild-input" value="<?= $config['popup-title-text'] ?>" name="popup-title-text" required="required">
                               </div>
-                               <div class="adminfild">
+                              <div class="adminfild">
                                 <label><?= __('Pop Up Description - Text'); ?></label>
-                                <textarea name="popup-description"><?= $config['popup-description'] ?></textarea>
+                                <textarea name="popup-description" id="popup-desc-value"><?= $config['popup-description'] ?></textarea>
                               </div>
                               <div class="adminfild">
                                 <label><?= __('Choose Your Occasion - Text'); ?><span class="red">*</span></label>
-                                <input type="text" placeholder="Choose your occasion" class="adminfild-input" value="<?= $config['occasion-text'] ?>" name="occasion-text" required="required">
+                                <input type="text" id="admin-popup-occasion" placeholder="Choose your occasion" class="adminfild-input" value="<?= $config['occasion-text'] ?>" name="occasion-text" required="required">
                               </div>
                               <div class="adminfild">                                  
                                 <label for="force_popup"><?= __('Display Force Popup'); ?><span class="red">*</span></label>
@@ -127,7 +128,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                              <div class="innor-flexbox">
                               <div class="adminfild">
                                 <label><?= __('Record Button - Text'); ?><span class="red">*</span></label>
-                                <input type="text" placeholder="Record" class="adminfild-input" value="<?= $config['video-record-button-text'] ?>" name="video-record-button-text" required="required">
+                                <input type="text" id="admin-popup-record" placeholder="Record" class="adminfild-input" value="<?= $config['video-record-button-text'] ?>" name="video-record-button-text" required="required">
                               </div>
                               <div class="adminfild">
                                 <label><?= __('Stop Button - Text'); ?><span class="red">*</span></label>
@@ -147,7 +148,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                             <div class="innor-flexbox">
                               <div class="adminfild">
                                 <label><?= __('Upload - Text'); ?><span class="red">*</span></label>
-                                <input type="text" placeholder="Upload Button Text" class="adminfild-input" value="<?= $config['upload-button-text'] ?>" name="upload-button-text" required="required">
+                                <input type="text" id="admin-popup-upload" placeholder="Upload Button Text" class="adminfild-input" value="<?= $config['upload-button-text'] ?>" name="upload-button-text" required="required">
                               </div>
                               <div class="adminfild">
                                 <label><?= __('Recording Clip - Text'); ?><span class="red">*</span></label>
@@ -165,13 +166,13 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                               </div>
                             </div>
                             <div class="innor-flexbox">
-                              <div class="adminfild">
-                                <label><?= __('Error - Text'); ?><span class="red">*</span></label>
+                              <div class="adminfild">                                
+                                <label><?= __('Error - Text'); ?><span class="red">*</span><span class="tooltipcontainer tooltip"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" d="M0 0h48v48h-48z"/><path d="M22 34h4v-12h-4v12zm2-30c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"/></svg><span class="tooltiptext">Tooltip text</span></span></label>
                                 <input type="text" placeholder="Something went wrong" class="adminfild-input" value="<?= $config['video-error-text'] ?>" name="video-error-text" required="required">
                               </div>
                               <div class="adminfild">
                                 <label><?= __('Submit Button - Text'); ?><span class="red">*</span></label>
-                                <input type="text" placeholder="Submit" class="adminfild-input" value="<?= $config['video-submit-text'] ?>" name="video-submit-text" required="required">
+                                <input type="text" id="admin-popup-submit" placeholder="Submit" class="adminfild-input" value="<?= $config['video-submit-text'] ?>" name="video-submit-text" required="required">
                               </div>
                             </div>                          
                           </div>
@@ -211,56 +212,90 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                           <div class="modal-inner-content">
                             <div class="qr-video">
                               <div class="modal-header-wrap">
-                                <div class="poup-logo"> 
-                                  <img src="https://ec-magento-test01.tk/static/version1640377313/adminhtml/Magento/backend/en_US/Ec_Qr/images/graphic-video-gift.png" alt="">
+                                <div class="admin-popup-description" style="display: none;">
+                                  <p class="popup-description-show">
+                                    <?= $config['popup-description'] ?>
+                                  </p>
                                 </div>
-                                <h2 class="popup-title">Send A Personal Video Message With Your Gift!<sup><button class="fa fa-info-circle" id="btn-desc">i</button></sup></h2>
-                                <p>Choose your occasion:</p>
+                                <div class="poup-logo">
+                                  <?php if($config['popup-banner-logo'] !=''):  ?>
+                                    <?php if (strpos($config['popup-banner-logo'], "http") === 0): ?>
+                                     <img src="<?php echo $config['popup-banner-logo']; ?>" alt="" id="pic">
+                                   <?php endif; ?>
+                                   <?php if (strpos($config['popup-banner-logo'], "http") !== 0): ?>
+                                     <img src="<?= $block->getBaseUrl() . "media/" . $config['popup-banner-logo']; ?>" alt="" id="pic">
+                                   <?php endif; ?>
+                                 <?php endif;?>   
+                                 <?php if($config['popup-banner-logo'] ==''):  ?>
+                                  <img src="<?= $block->getViewFileUrl('Ec_Qr::images/admin-popup-logo.png'); ?>" alt="no-image" id="pic">
+                                <?php endif; ?> 
+                              </div>                              
+                              <?php if(isset($config['popup-title-text']) && $config['popup-title-text'] !=''):  ?>
+                                <h2 class="popup-title"> <strong class="popup-title-preview">
+                                  <?php echo $config['popup-title-text'];?></strong>
+                                <?php endif; ?> 
+                                <?php if(isset($config['popup-description']) && $config['popup-description'] !=''):  ?>
+                                  <sup><button type="button" class="fa fa-info-circle" id="btn-desc">i</button></sup>
+                                <?php endif; ?> 
+                              </h2>
+                              <p class="admin-occasion-preview">
+                               <?php if(isset($config['occasion-text']) && $config['occasion-text'] !=''):  ?> 
+                                 <?= $config['occasion-text'] ?>
+                               <?php endif; ?>                                
+                             </p>
+                           </div>
+                           <div class="form-wrapper">
+                            <div class="theme-list-group-slider_image">
+                              <img src="<?= $block->getViewFileUrl('Ec_Qr::images/theme.png'); ?>" alt="no-image"> 
+                            </div>
+                            <p class="modal-text" style="display: none;"><?= __('demo'); ?></p>
+                            <fieldset class="fieldset">
+                              <div class="field name required">
+                                <div class="record-wrapper">
+                                  <span class="live_video mymodal-recording-tag" style="display:none"><?= __('Recorded Clip'); ?></span>
+                                  <span class="video_display mymodal-recording-tag" style="display:none"><?= __('Recorded'); ?></span>
+                                </div>
+                                <div class="control modal-text modal-bottom-text">
+                                  <div class="upload-button" id="record" style="color: <?= $config['record-upload-butoon-text-color'] ?>; background-color: $config['record-upload-butoon-primary-color']; background: linear-gradient(-131deg, <?= $config['record-upload-butoon-secondary-color'] ?>, <?= $config['record-upload-butoon-primary-color'] ?>);">
+                                    <?php if(isset($config['video-record-button-text']) && $config['video-record-button-text'] !=''):  ?>  
+                                     <?= $config['video-record-button-text'] ?>                                   
+                                   <?php endif; ?>
+                                 </div>
+                                 <div class="upload-button" id="stop" style="display:none"><?= __('Stop'); ?></div>
+                                 <div class="upload-button" id="remove" style="display:none;"><?= __('Remove Personal Video Message'); ?></div>
+                                 <span class="mymodal-recording-tag" id="filename" style="display:none;"></span>
+                                 <div class="upload-button" id="upload-button" style="color: <?= $config['record-upload-butoon-text-color'] ?>; background: linear-gradient(-131deg, <?= $config['record-upload-butoon-secondary-color'] ?>, <?= $config['record-upload-butoon-primary-color'] ?>);">
+                                  <?php if(isset($config['upload-button-text']) && $config['upload-button-text'] !=''):  ?>  
+                                    <?= $config['upload-button-text'] ?>
+                                  <?php endif; ?>
+                                </div>
                               </div>
-                              <div class="form-wrapper">
-                                <div class="theme-list-group-slider_image">
-                                  <img src="https://img001.prntscr.com/file/img001/A1REo_zHSHK9LReP3GxHQg.png" alt=""> 
-                                </div>
-                                <p class="modal-text" style="display: none;">demo</p>
-                                <fieldset class="fieldset">
-                                  <div class="field name required">
-                                    <div class="record-wrapper">
-                                      <span class="live_video mymodal-recording-tag" style="display:none">Recorded Clip</span>
-                                      <span class="video_display mymodal-recording-tag" style="display:none">Recorded</span>
-                                    </div>
-                                    <div class="control modal-text modal-bottom-text">
-                                      <div class="upload-button" id="record" style="color: rgb(0, 0, 0); background: linear-gradient(-131deg, rgb(210, 210, 210) 11%, rgb(210, 210, 210) 72%);">Record</div>
-                                      <div class="upload-button" id="stop" style="display:none">Stop</div>
-                                      <div class="upload-button" id="remove" style="display:none;">Remove Personal Video Message</div>
-                                      <span class="mymodal-recording-tag" id="filename" style="display:none;"></span>
-                                      <div class="upload-button" id="upload-button" style="color: rgb(0, 0, 0); background: linear-gradient(-131deg, rgb(210, 210, 210) 11%, rgb(210, 210, 210) 72%);">Upload</div>
-                                    </div>
-                                  </div>                            
-                                  <div class="actions-toolbar form-submit-btn">
-                                    <span class="mymodal-recording-tag error" style="display:none">Something went wrong</span>
-                                    <div class="action submit primary" style="color: #ffffff;background-color: #f77e27;background:linear-gradient(-131deg, #fad25d 11%, #d2d2d2 72%)">
-                                      <span>Submit</span>
-                                    </div>
-                                  </div>
-                                </fieldset>
+                            </div>                            
+                            <div class="actions-toolbar form-submit-btn">
+                              <span class="mymodal-recording-tag error" style="display:none"><?= __('Something went wrong'); ?></span>
+                              <div class="action submit primary submit-preview" style="color: <?= $config['submit-button-text-color'] ?>;background-color: <?= $config['submit-button-primary-color'] ?>;background:linear-gradient(-131deg, <?= $config['submit-button-secondary-color'] ?>, <?= $config['submit-button-primary-color'] ?>">
+                                <span><?= __('Submit'); ?></span>
                               </div>
                             </div>
-                          </div>
+                          </fieldset>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-save-btn">
-                    <input id="submit" type="submit" value="<?= __('Save'); ?>" />
-                  </div>
                 </div>
-              </form>
+              </div>
+            </div>
+            <div class="tab-save-btn">
+              <input id="submit" type="submit" value="<?= __('Save'); ?>" />
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
 </div>
 <?php endif; ?>
 <style type="text/css">
@@ -278,15 +313,150 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
     margin: 10px 15px;
   }
 </style>
-<script type="text/javascript">
-  require(['jquery', 'jquery/ui'], function($) {
-    $(document).ready(function($) {
-      /*Remove banner code start*/                     
-      if($("#dynamic_banner").hasClass("image-uplode-privew1")){
-       $(".remove-banner-button").hide();
-     }else{            
-      $(".remove-banner-button").show();
-    }
-  });
-  });
+<script>
+  require(
+    [
+    'jquery',
+    'Magento_Ui/js/modal/modal',
+    ],
+    function(
+      $,
+      modal
+      ) {
+      var options = {
+        type: 'popup',
+            // responsive: true,
+            innerScroll: true,
+            title: false,
+            modalClass:'ec-main-cart-admin-popup-live',
+            buttons: []
+          };
+          $(document).ready(function(){
+            var popup = modal(options, $('.admin-popup-description'));
+            var recordSecondaryColor = $("#record-upload-butoon-secondary-color").val();
+            var recordPrimaryColor = $("#record-upload-butoon-primary-color").val();
+            var popupValue = $('#popup-desc-value').val();  
+             $('#btn-desc').on('click', function(){
+               $('.admin-popup-description').text(popupValue);                                          
+               $('.admin-popup-description').show();              
+               $('.admin-popup-description').modal('openModal');
+             });                        
+             $("#popup-desc-value").keyup(function(){                
+               var popupValue = this.value;
+             $('#btn-desc').on('click', function(){
+               $('.admin-popup-description').text(popupValue);                                          
+               $('.admin-popup-description').show();              
+               $('.admin-popup-description').modal('openModal');
+             });
+             });           
+              
+            /*Admin popup preview start */
+            $("#admin-popup-title").keyup(function(){
+              $(".popup-title-preview").text($("#admin-popup-title").val());
+            });
+
+            $("#admin-popup-occasion").keyup(function(){
+              $(".admin-occasion-preview").text($("#admin-popup-occasion").val());
+            });
+
+            $("#admin-popup-record").keyup(function(){
+              $("#record").text($("#admin-popup-record").val());
+            });
+
+            $("#admin-popup-upload").keyup(function(){
+              $("#upload-button").text($("#admin-popup-upload").val());
+            });
+
+            $("#admin-popup-submit").keyup(function(){
+              $(".submit-preview").text($("#admin-popup-submit").val());
+            });            
+
+            $("#record-upload-butoon-text-color").on("change paste keyup", function() {                
+              $('#record').css("color", $(this).val());
+              $('#upload-button').css("color", $(this).val());                
+            });
+
+            $("#submit-button-text-color").on("change paste keyup", function() {                
+              $('.submit-preview').css("color", $(this).val());                
+            });
+
+            $("#record-upload-butoon-primary-color").on("change paste keyup", function() {   
+              var rgba = $(this).val();
+              var rgbaTwo = $("#record-upload-butoon-secondary-color").val();
+              $('#record').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });
+
+              $('#upload-button').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });
+
+            });
+
+            $("#record-upload-butoon-secondary-color").on("change paste keyup", function() {   
+              var rgba = $(this).val();
+              var rgbaTwo = $("#record-upload-butoon-primary-color").val();
+              $('#record').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });
+
+              $('#upload-button').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });                 
+            });
+
+            $("#submit-button-primary-color").on("change paste keyup", function() {   
+              var rgba = $(this).val();
+              var rgbaTwo = $("#submit-button-secondary-color").val();
+              $('.submit-preview').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });                 
+            });
+
+            $("#submit-button-secondary-color").on("change paste keyup", function() {   
+              var rgba = $(this).val();
+              var rgbaTwo = $("#submit-button-primary-color").val();
+              $('.submit-preview').css({
+                'background' : '-webkit-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-moz-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-o-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : '-ms-linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')',
+                'background' : 'linear-gradient(-131deg,' + rgba + ', ' + rgbaTwo + ')'
+              });                 
+            });
+
+            /*Admin popup preview end */
+
+            /*Remove banner code start*/                     
+            if($("#dynamic_banner").hasClass("image-uplode-privew1")){
+             $(".remove-banner-button").hide();
+           }else{            
+             $(".remove-banner-button").show();
+           }
+           /*Remove banner code end*/
+         });
+}
+);
 </script>
+
+

@@ -303,6 +303,28 @@ if ($config['campaign'] && $this->canShow() && $config['enabled']) :
                    $('.admin-popup-description').modal('closeModal');
                }
            })
+               
+            async function checkMediaDeviceBeforeRecording() {
+                // get video & audio stream from user
+                navigator.mediaDevices.getUserMedia({
+                    audio: true,
+                    video: true
+                })
+                    .then(function (stream) {
+                        try {
+                            liveStream = stream;
+                            recorder = new MediaRecorder(liveStream);
+                            startRecording(stream)
+                        } catch (error) {
+                            setMediaDeviceError();
+                        }
+                        liveStream = stream;
+                    }).catch(function (err) {
+                    setMediaDeviceError();
+                });
+
+            }
+            
              //To check supported devices
              $("#qr-modal-btn").click(function () { 
                 navigator.mediaDevices.getUserMedia({

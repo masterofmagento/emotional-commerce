@@ -41,8 +41,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                             </li>
                             <li class="innorsub-tab-li">
                               <span class="innor-tab-title">
-                               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: rgb(0, 0, 0);"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                               style="stroke: rgb(0, 0, 0);"></path></svg>
+                              <svg class="Settings" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: currentColor;"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor;fill: none !important;"></path>
+                             </svg>
                               <?= __('Settings'); ?> 
                               <span class="down-icon"><svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M325.607 4.393C319.75 -1.464 310.252 -1.465 304.394 4.394L165.004 143.787L25.607 4.393C19.75 -1.464 10.252 -1.465 4.39399 4.394C-1.46401 10.252 -1.46401 19.749 4.39399 25.607L154.398 175.607C157.211 178.42 161.026 180 165.004 180C168.982 180 172.798 178.419 175.61 175.606L325.606 25.606C331.465 19.749 331.465 10.251 325.607 4.393Z" fill="currentColor" />
@@ -116,7 +116,9 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                                             } ?>
                                                             <td><?= $order->getStatus(); ?></td>
                                                             <td><?= $order->getTotalItemCount(); ?></td>                
-                                                            <td><a class="table-btn" download="<?= $block->getPrintqr($order->getId()); ?>"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <td><a class="table-btn" download="<?= $block->getPrintqr($order->getId()); ?>">
+                                                             <a class="table-btn" id="download-qr-image" href="<?= $block->getPrintqrurl($order->getId(), 1); ?>" download>  
+                                                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <g clip-path="url(#clip0_10_2)">
                                                             <path d="M11 15.5834C10.6205 15.5834 10.3125 15.2754 10.3125 14.8959V0.6875C10.3125 0.307999 10.6205 0 11 0C11.3795 0 11.6875 0.307999 11.6875 0.6875V14.8959C11.6875 15.2754 11.3795 15.5834 11 15.5834Z" fill="black"/>
                                                             <path d="M11.0004 15.5834C10.8244 15.5834 10.6485 15.5164 10.5145 15.3817L6.8479 11.715C6.57935 11.4465 6.57935 11.0111 6.8479 10.7424C7.11646 10.4738 7.55185 10.4738 7.82057 10.7424L11.0013 13.9232L14.1821 10.7424C14.4507 10.4738 14.8862 10.4738 15.1548 10.7424C15.4234 11.0111 15.4234 11.4465 15.1548 11.715L11.488 15.3817C11.3524 15.5164 11.1765 15.5834 11.0004 15.5834V15.5834Z" fill="black"/>

@@ -9,5 +9,10 @@
                 <block class="Ec\Qr\Block\Cart" after="-" template="Ec_Qr::checkout/cart/qr.phtml" />
             </referenceContainer>
         </referenceBlock>
-    </body>
+        <referenceBlock name="checkout.cart.form">
+           <action method="setTemplate">
+               <argument name="template" xsi:type="string">Ec_Qr::cart/form.phtml</argument>
+           </action>
+       </referenceBlock>
+   </body>   
 </page>

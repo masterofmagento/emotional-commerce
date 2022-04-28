@@ -30,6 +30,12 @@ class Orders extends Config
         return $url->getUrl('ecqr/order/printqr', ['order_id' => $id]);
     }
 
+    public function getPrintqrurl($id, $flag)
+    {
+        $url = $this->context->getUrlBuilder();
+        return $url->getUrl('ecqr/order/printqr', ['order_id' => $id, 'flag' => $flag]);
+    }
+
     /**
      * Get object created at date
      *

@@ -1,4 +1,13 @@
+<?php $qrImage = $block->getTemplateHtml(); ?>
+<?php if($qrImage['flag'] != 1):?>
 <div>
-    <?= $block->getTemplateHtml(); ?>
+   <?php echo $qrImage['qr'];?>
 </div>
 <script>window.print()</script>
+<?php endif;?>
+
+<?php if($qrImage['flag'] == 1):?>
+<div style="text-align: center;">
+<img src="<?php echo $qrImage['qr_image'];?>" alt="no-image" width="150px"/>
+</div>
+<?php endif;?>

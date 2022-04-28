@@ -45,6 +45,8 @@ class Printqr extends \Magento\Backend\Block\Template
     public function getTemplateHtml()
     {
         $orderId = $this->request->get('order_id');
+        $flag = $this->request->get('flag');
+
 
         $ecOrder = $this->ecOrderFactory->create()->load($orderId, 'order_id');
 
@@ -57,6 +59,12 @@ class Printqr extends \Magento\Backend\Block\Template
             if (!$response['success']) {
                 return '<p>It seems Something went wrong, please try again or contact our support</p>';
             }
+        }
+        $data = array();
+        if($flag == 1){
+            $data['flag'] = $flag;
+            $data['qr_image'] = $ecOrder->getQr();
+            return $data;
         }
 
         $config = $this->apiHelper->getConfig();
@@ -71,7 +79,9 @@ class Printqr extends \Magento\Backend\Block\Template
             '<span>'.$config['qr-title'].'</span>',
             $template
         );
-
-        return $template;
+            $data['flag'] = 2;               
+            $data['qr_image'] = 3;
+            $data['qr'] = $template;
+            return $data;    
     }
 }

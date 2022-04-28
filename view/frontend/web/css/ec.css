@@ -23,6 +23,9 @@
     height: 32px;
     line-height: 16px;
 }
+.dis-qr-modal-btn {
+    opacity: 50%;
+}
 .main-button-icon {
     height: 32px;
 }
@@ -32,6 +35,9 @@
     justify-content: center;
     border: none;
     padding: 8px 10px;
+}
+.dis-qr-modal-btn {
+    opacity: 50%;
 }
 #qr-modal-btn .gift-box-svg {
     display: flex;

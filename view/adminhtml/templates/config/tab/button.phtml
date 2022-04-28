@@ -39,7 +39,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                 </a>
               </li>
               <li class="innorsub-tab-li"><span class="innor-tab-title">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: rgb(0, 0, 0);"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: rgb(0, 0, 0);"></path></svg> 
+                <svg class="Settings" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: currentColor;"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor;fill: none !important;"></path>
+                </svg>
                 <?= __('Settings'); ?>
                 <span class="down-icon">
                   <svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +121,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                   </select>
                                 </div>
                                 <div class="adminfild">
-                                  <label><?= __('Add a video message'); ?></label>
+                                  <label><?= __('Edit Button Text Here'); ?></label>
                                   <input type="text" placeholder="Video message text" class="adminfild-input" id="button-background-text" value="<?= $config['button-title'] ?>" name="button-title">
                                 </div>
                                 <div class="button-colorinput-group">
@@ -159,7 +160,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                             </div>
                             <div class="signin-form-tab2 button-tab">
                               <div class="button-tab-wrap">                                              
-                                <img src="<?= $block->getViewFileUrl('Ec_Qr::images/button-right-image_2.jpg'); ?>" alt="">
+                                <img src="<?= $block->getViewFileUrl('Ec_Qr::images/Button-Display.png'); ?>" alt="">
+                                <img src="<?= $block->getViewFileUrl('Ec_Qr::images/Banner-Display.png'); ?>" alt="">
                               </div>
                             </div>
                           </div>
@@ -172,17 +174,17 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                 <iframe src="https://www.youtube.com/embed/xWGhyykLLNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                               </div>
                             </div>
+                            <div class="video-bootm-tagline">
+                              <h2><?= __('To add the "Add Popup" button on any page, just copy the below shortcode and simply place it inside your CMS page, Static block OR call using a widget, and you can enable the Popup Button OR Banner without any custom coding and easily manage the behavior from the admin.'); ?></h2>
+                              <input class="linkToCopy" value='{{block class="Ec\Qr\Block\Cart" template="Ec_Qr::dynamicbtn.phtml"}}' readonly="readonly" />
+                              <button class="copyButton"><?= __('Click here to copy code'); ?></button>
+                            </div>
                           </div>
                         </div>
                       </form>
                     </div>
                   </div>
-                </div>
-                <div class="video-bootm-tagline">
-                  <h2><?= __('To add the "Add Popup" button on any page, just copy the below shortcode and simply place it inside your CMS page, Static block OR call using a widget, and you can enable the Popup Button OR Banner without any custom coding and easily manage the behavior from the admin.</h2>  
-                  <button class="copyButton">Click here to copy code'); ?></button>
-                  <input class="linkToCopy" value='{{block class="Ec\Qr\Block\Cart" template="Ec_Qr::dynamicbtn.phtml"}}' readonly="readonly" />
-                </div>
+                </div>               
                 <div class="button-bttom-text">
                   <div class="group">
                     <p><a href="<?= $block->getFaqSectionUrl(); ?>"><?= __('* Visit FAQs'); ?></a><?= __(' for additonal information and manual installation'); ?></p>
@@ -194,88 +196,59 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
           </div>
         </div>
       <?php endif; ?>
-<style>
-  .main-button-icon {
-    height: 32px;
-  }
 
-  .button-bttom-text {
-    background-color: #f5f5f5;
-    padding: 26px 15px;
-  }
+      <script type="text/javascript">
+        require(['jquery', 'jquery/ui'], function($) {
+          $(document).ready(function($) {
+            $("#button-background-text").on("change paste keyup", function() {
+              $('#button-title').text($(this).val());
+            });
+            $("#button-background").on("change paste keyup", function() {
+              $('#qr-modal-btn').css("background-color", $(this).val());                
+              $('#gift-box-svg5').css({ fill: $(this).val()});
+            });            
 
-  .button-bttom-text p {
-    text-align: center;
-    font-weight: 600;
-    color: #000;
-    font-size: 19px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .remove-banner-button {
-    text-align: center;
-    margin-top: 5px;
-  }
-  .video-bootm-tagline{
-    text-align: center;
-  }
-  .button-bttom-text a {
-    color: blue;
-  }
+            $("#button-color").on("change paste keyup", function() {
+              $('#qr-modal-btn').css("color", $(this).val());
+              $('#gift-box-svg1').css({ fill: $(this).val()});
+              $('#gift-box-svg2').css({ fill: $(this).val()});
+              $('#gift-box-svg3').css({ fill: $(this).val()});
+              $('#gift-box-svg4').css({ fill: $(this).val()});               
+            });
 
-</style>
-<script type="text/javascript">
-  require(['jquery', 'jquery/ui'], function($) {
-    $(document).ready(function($) {
-      $("#button-background-text").on("change paste keyup", function() {
-        $('#button-title').text($(this).val());
-      });
-      $("#button-background").on("change paste keyup", function() {
-        $('#qr-modal-btn').css("background-color", $(this).val());                
-        $('#gift-box-svg5').css({ fill: $(this).val()});
-      });            
+            /*Remove banner code start*/                     
+            if($("#dynamic_banner").hasClass("image-uplode-privew1")){
+              $(".remove-banner-button").hide();
+            }else{            
+              $(".remove-banner-button").show();
+            }
 
-      $("#button-color").on("change paste keyup", function() {
-        $('#qr-modal-btn').css("color", $(this).val());
-        $('#gift-box-svg1').css({ fill: $(this).val()});
-        $('#gift-box-svg2').css({ fill: $(this).val()});
-        $('#gift-box-svg3').css({ fill: $(this).val()});
-        $('#gift-box-svg4').css({ fill: $(this).val()});               
-      });
+            $('button.copyButton').click(function(){
+              $(this).siblings('input.linkToCopy').select();                
+              $(".copyButton" ).html("Copied!");      
+              document.execCommand("copy");
+            });          
 
-      /*Remove banner code start*/                     
-      if($("#dynamic_banner").hasClass("image-uplode-privew1")){
-        $(".remove-banner-button").hide();
-      }else{            
-        $(".remove-banner-button").show();
-      }
-
-      $('button.copyButton').click(function(){
-        $(this).siblings('input.linkToCopy').select();                
-        $(".copyButton" ).html("Copied!");      
-        document.execCommand("copy");
-      });          
-
-      var prevVal = $(".main-qr-button-wrapper").attr('class').split(' ')[1];
-      $("#dynamic-button-preview").on("change",function(){
-        var val = $(this).find('option:selected').val();
-        $(".main-qr-button-wrapper").removeClass(prevVal).addClass(val);
-        $(".image-uplode-privew").removeClass(prevVal).addClass(val);
-        prevVal = val;             
-      });
-    });
-  });
-  function openTab(evt, TabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("dashboardbody__tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("TabLinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(TabName).style.display = "flex";
-    evt.currentTarget.className += " active";
-  }
-</script>
+            var prevVal = $(".main-qr-button-wrapper").attr('class').split(' ')[1];
+            $("#dynamic-button-preview").on("change",function(){
+              var val = $(this).find('option:selected').val();
+              $(".main-qr-button-wrapper").removeClass(prevVal).addClass(val);
+              $(".image-uplode-privew").removeClass(prevVal).addClass(val);
+              prevVal = val;             
+            });
+          });
+        });
+        function openTab(evt, TabName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("dashboardbody__tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("TabLinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(TabName).style.display = "flex";
+          evt.currentTarget.className += " active";
+        }
+      </script>

@@ -90,6 +90,7 @@ img.dashboard-feature-image {
 /*#button-color, #button-background {
     display: block !important;
 }*/
+#admin_model_popup_privew {position: sticky; top: 0; }
 /* New design Css start here */
 .adminlogin-box .adminflexbox {
     display: flex;
@@ -280,7 +281,7 @@ img.dashboard-feature-image {
 .app-dashboard-group .col.right-col {
     max-width: calc(100% - 200px);
     width: 100%;
-    padding:30px 15px;
+    padding:15px;
     border: 1px solid #f5f5f5;
     border-left: none;
 }
@@ -382,6 +383,202 @@ img.dashboard-feature-image {
     margin-left: 0px;
 }
 
+/*Template css merging start*/
+.account-tab-select-section select {
+  max-width: 100%;
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+  text-indent: 10px;
+  border: 1px;
+  solid #d9d9d9;
+  display: block !important;
+  line-height: 1.5;
+}
+
+.account-tab-select-section label {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 5px;
+  display: block;
+  width: 100%;
+}
+
+.account-tab-select-section {
+  margin: 10px 1px 5px 30px;
+}
+
+.main-button-icon {
+  height: 32px;
+}
+
+.button-bttom-text {
+  background-color: #f5f5f5;
+  padding: 26px 15px;
+}
+
+.button-bttom-text p {
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+  font-size: 19px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.remove-banner-button {
+  text-align: center;
+  margin-top: 5px;
+}
+.video-bootm-tagline{
+  text-align: center;
+}
+
+/*Template css merging end*/
+
+/*joey css start here*/
+
+/*===================
+* BUTTON CUSTOMIZE PAGE
+*====================*/
+.button-setting-title h2, .button-setting-title h4 {
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.signin-form-tab1 .remove-banner-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 15px;
+}
+.signin-form-tab2.button-tab img {
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
+}
+
+.button-bttom-text p {
+    text-align: center;
+    font-weight: 400;
+    color: #000;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.button-bttom-text a {
+    color: #1979c3;
+}
+
+/*===================
+* POPUP CUSTOMIZE PAGE
+*====================*/
+span.tooltipcontainer svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+}
+
+/*===================
+* FAQ PAGE
+*====================*/
+.admin_accordion_faq .accordion_toggle::before {
+    content: "";
+    width: 2px;
+    height: 14px;
+    display: block;
+    background-color: #000;
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+}
+.admin_accordion_faq .accordion_toggle::after {
+    content: "";
+    width: 14px;
+    height: 2px;
+    display: block;
+    background-color: #000;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.bottom-footer-text {
+    max-width: 950px;
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 8px;
+}
+.bottom-footer-text p {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+}
+.bottom-footer-text p a {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    border-radius: 6px;
+    display: block;
+    margin: 10px auto 0;
+}
+
+/*joey css end here*/
+
+/*popup design start here*/
+
+  .remove-banner-button {
+    text-align: center;
+    margin-top: 5px;
+  }
+  #dynamic_banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*border: 2px dashed #e1e1e1;*/
+    padding: 5px 0px;
+    height: 217px;
+    margin: 10px 15px;
+  }
+ .ec-main-cart-admin-popup-live #modal-content-1{
+   padding:20px 30px;
+ }
+ .ec-main-cart-admin-popup-live .modal-inner-wrap{
+  max-width: 500px;border-radius: 16px; padding:10px 0 25px 0;
+}
+.ec-main-cart-admin-popup-live .modal-inner-wrap{
+  left: 55%;right: 0;margin: 0 auto;transform:translateY(-50%) !important;-webkit-transform:translateY(-50%) !important;-moz-transform:translateY(-50%) !important;top: 44%;
+}
+body .modal-popup.modal-slide.ec-main-cart-admin-popup-live{
+  min-height:170px;height: max-content;
+}
+body .modal-popup.modal-slide.ec-main-cart-admin-popup-live .modal-inner-wrap{
+  height: max-content;
+}
+.ec-main-cart-admin-popup-live .modal-inner-wrap{
+  transform:translateY(00%) !important;-webkit-transform:translateY(00%) !important;-moz-transform:translateY(00%) !important;
+}
+.popup-description-show {  
+    padding: 15px 20px 40px 15px;
+}
+
+/*popup design end here*/
+
 .app-dashboard-group .description-table table {
     width: 100%;
     max-width: 100%;
@@ -478,13 +675,13 @@ img.dashboard-feature-image {
 .faq-title{text-align: center;font-size: 26px;color: #000;font-weight: bold;}
 .admin_accordion_faq{max-width:1000px;width:100%;margin: 0px auto;padding:0px 25px;list-style: none}
 .admin_accordion_faq .inner{display: none;}
-.admin_accordion_faq .accordion_toggle{box-shadow: 0px 3px 2px rgba(225,225,225,0.2);display: block;width: 100%;background-color:rgba(225, 225, 225, 0.4);color: #000;padding:5px 15px;line-height: 2;border-radius: 5px;position: relative;}
-.admin_accordion_faq .accordion_toggle:after{content: "";width: 18px;height: 2px;display: block;background-color: #000;position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);}
-.admin_accordion_faq .accordion_toggle:before{content: "";width: 2px;height:18px;display: block;background-color: #000;position: absolute;right:22px;top: 50%;transform: translateY(-50%);transition: all 0.3s ease-in-out;}
+.admin_accordion_faq .accordion_toggle{box-shadow: 0px 3px 2px rgba(225,225,225,0.2);display: block;width: 100%;background-color:rgba(225, 225, 225, 0.4);color: #000;padding:8px 15px;line-height: 2;border-radius: 5px;position: relative;font-weight: bold;}
+.admin_accordion_faq .accordion_toggle:after{content: "";width: 16px;height: 2px;display: block;background-color: #000;position: absolute;right: 15px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.admin_accordion_faq .accordion_toggle:before{content: "";width: 2px;height:15px;display: block;background-color: #000;position: absolute;right:22px;top: 50%;transform: translateY(-50%);transition: all 0.3s ease-in-out;}
 .admin_accordion_faq .accordion_toggle.active:before{transform: translateY(-50%) rotate(90deg);-webkit-transform: translateY(-50%) rotate(90deg);moz-transform: translateY(-50%) rotate(90deg);}
-.admin_accordion_faq .accordion_toggle.active{background-color: #d1edf1;font-weight:bold;box-shadow: 0px 3px 2px rgba(0,0,0,0.1);}
+.admin_accordion_faq .accordion_toggle.active{background-color: #d1edf1;font-weight:bold;}
 .admin_accordion_faq > li{padding-bottom: 15px;}
-.admin_accordion_faq .inner .inner-wrap{padding:15px 25px;border:3px solid #f7f7f7;border-top: none;}
+.admin_accordion_faq .inner .inner-wrap{padding:15px 25px;border:2px solid #f7f7f7;margin-top: 15px;}
 .admin_accordion_faq .inner .inner-wrap p,
 .admin_accordion_faq .inner .inner-wrap li{font-size: 16px;line-height: 1.4;margin-bottom: 15px;}
 .admin_accordion_faq .inner .inner-wrap ol,
@@ -497,7 +694,7 @@ img.dashboard-feature-image {
 .buttontab-title{width: 100%;}
 .buttontab-title h1{width: 100%;text-align: center;font-size:26px;margin-bottom:50px;color: #000;font-weight: bold;}
 .signin-form-tab1.button-tab{max-width:45%;width: 100%;padding: 0px 15px;}
-.signin-form-tab2.button-tab{max-width:55%;width: 100%;padding:50px 15px 0px;}
+.signin-form-tab2.button-tab{max-width:55%;width: 100%;padding:69px 15px 0px;}
 .signin-form-tab2.button-tab img{max-width: 100%;width: 100%;object-fit: contain;}
 .button-colorinput-group{padding: 0px 0px 25px;display: flex;margin: 0px -10px;}
 .button-colorinput-group .button-colorinput{padding:0px 10px;max-width: 50%;width: 100%;}
@@ -505,7 +702,11 @@ img.dashboard-feature-image {
 .button-fileuplod{padding: 00px 0px 20px;}
 .button-fileuplod input{width: 100%;border: 1px solid #d9d9d9;border-radius: 5px;padding: 9px;}
 .button-fileuplod label{color: #666;margin: 0px 0px 5px;display:block;line-height: 1;width: 100%;}
-.account-setting-tab .tab-title{border-bottom:1px solid #e1e1e1;padding-left: 40px;}
+.account-setting-tab .tab-title {
+    border-bottom: 1px solid #e1e1e1;
+    margin-left: 30px;
+    max-width: 810px;
+}
 .account-setting-tab .tab-title h5{font-size: 20px;font-weight: bold;margin: 0px;text-transform: capitalize;padding-bottom: 5px;color: #000;}
 .account-setting-tab .tab-dec{padding: 25px 40px 15px;}
 .account-setting-tab .tab-dec p.price-input{color: #999;}
@@ -546,7 +747,12 @@ img.dashboard-feature-image {
 .tab2-tab-details h2{font-size: 26px;font-weight: bold;color: #000;}
 .tab2-tab-details p{font-size: 18px;color: #000;line-height: 1.7;}
 .button-setting-title h2,
-.button-setting-title h4{font-weight:bold;color: #000;margin-bottom:30px;font-size: 18px;}
+.button-setting-title h4{font-weight:600;color: #000;margin-bottom:10px;font-size: 17px;}
+.button-setting-title h5 {
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
 #tab5 .signin-form-tab1 .adminfild{margin:10px 0px;}
 a {color: #000000;}
 #tab5 .signin-form-tab1 .adminfild{margin:10px 0px;}
@@ -832,6 +1038,9 @@ code.linkToCopy span{background-color: #e6e9f0;font-size: 14px;line-height: 1.4;
     border-bottom-color: #000;
     background-color: #f5f5f5;
 }
+.tablinks__Block a:hover {
+    text-decoration: none;
+}
 .qr-bttom-text .group {
     flex-wrap: wrap;
     justify-content: center;
@@ -840,7 +1049,13 @@ code.linkToCopy span{background-color: #e6e9f0;font-size: 14px;line-height: 1.4;
     font-size: 28px;
     font-weight: bold;
     color: #000;
-    margin-bottom: 15px;    
+    margin-top: 12px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;  
+}
+.qr-bttom-text .group img.ec-footer-logo {
+    max-width: 65px;
 }
 .qr-bttom-text .group p{
     color: #666;
@@ -967,3 +1182,93 @@ code.linkToCopy span{background-color: #e6e9f0;font-size: 14px;line-height: 1.4;
     width: 20px;
     height: 20px;
 }
+.popup-page .button-fileuplod{padding: 0;}
+span.tooltipcontainer svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+}  
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 95%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+.modal-popup._inner-scroll .modal-content {
+    text-align: center;
+}
+.app-dashboard-group .dashboardmenu-list li.innorsub-tab-li .dashboardmenu-list-li.current a:hover {
+    color: #000 !important;
+}
+.modal-popup .modal-header {
+    padding-top: 1rem;
+}
+.modal-popup._inner-scroll .modal-inner-wrap {
+    padding-bottom: 30px;
+}
+    @media screen and (max-width: 1570px){
+        .signin-form-tab2.button-tab{padding-top: 52px;}
+        .button-setting-title h2, .button-setting-title h4 {
+            margin-bottom: 5px;
+            font-size: 13.3px;
+        }
+        .button-setting-title h5 {
+            font-weight: 500;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+        .main-qr-button-wrapper button span{font-size: 13px;}
+        .main-qr-button-wrapper button .gift-box-svg svg {
+            width: 20px;
+        }
+        .app-dashboard-group .adminleft-col .adminfild label, .app-dashboard-group .button-tab .adminfild label, .button-colorinput label, .admin-col-colorgroup .admin-color-col-filde label, .button-fileuplod label, .popup-page .adminfild-fileuplod p {
+            font-size: 12px;
+        }
+        .image-uplode-privew{height: 195px;}
+        #dynamic_banner{height: 190px;}
+        span.tooltipcontainer svg {
+            width: 18px;
+            height: 18px;
+            margin-top: -3px;
+        }
+        .admin-col-colorgroup .admin-color-col-filde {
+            display: flex;
+            flex-direction: column;
+        }
+        .admin-col-colorgroup .admin-color-col-filde span.sp-original-input-container {
+            margin-top: auto !important;
+        }
+    }
+    @media screen and (max-width: 1130px){
+        .signin-form-tab2.button-tab {
+        padding-top: 136px;
+        }
+    }

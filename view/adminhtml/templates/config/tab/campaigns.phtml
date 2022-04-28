@@ -42,8 +42,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                 </li>
                 <li class="innorsub-tab-li">
                   <span class="innor-tab-title active">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: rgb(0, 0, 0);"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    style="stroke: rgb(0, 0, 0);"></path></svg> 
+                    <svg class="Settings" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: currentColor;"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor;fill: none !important;"></path>
+                  </svg>
                     <?= __('Settings'); ?> 
                     <span class="down-icon">
                       <svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,6 +113,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                           </div>
                           <div class="qr-bttom-text">
                             <div class="group">
+                              <img class ="ec-footer-logo" src="<?= $block->getViewFileUrl('Ec_Qr::images/ec-footer-logo.png'); ?>" alt="">
                               <h3><?= __("Let's create your own!"); ?></h3>   
                               <p><?= __('Click below to access The Emotional Commerce platform and unlock advanced customization tools in the Design Lab'); ?></p>
                             </div>

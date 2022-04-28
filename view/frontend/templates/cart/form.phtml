@@ -1,0 +1,117 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/**  @var $block \Magento\Checkout\Block\Cart\Grid */
+?>
+<?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
+<?= $block->getChildHtml('form_before') ?>
+<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
+          method="post"
+          id="form-validate"
+          data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
+              {"validationURL" : "<?= $block->escapeUrl($block->getUrl('checkout/cart/updateItemQty')) ?>",
+              "updateCartActionContainer": "#update_cart_action_container"}
+          }'
+          class="form form-cart">
+    <?= $block->getBlockHtml('formkey') ?>
+    <div class="cart table-wrapper<?= $mergedCells == 2 ? ' detailed' : '' ?>">
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="cart-products-toolbar cart-products-toolbar-top toolbar"
+                 data-attribute="cart-products-toolbar-top"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+        <table id="shopping-cart-table"
+               class="cart items data table"
+               data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
+               "updateCartActionContainer": "#update_cart_action_container"}}'>
+            <caption class="table-caption"><?= $block->escapeHtml(__('Shopping Cart Items')) ?></caption>
+            <thead>
+                <tr>
+                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Item')) ?></span></th>
+                    <th class="col price" scope="col"><span><?= $block->escapeHtml(__('Price')) ?></span></th>
+                    <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                    <th class="col subtotal" scope="col"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
+                </tr>
+            </thead>
+            <?php foreach ($block->getItems() as $_item): ?>
+                <?= $block->getItemHtml($_item) ?>
+            <?php endforeach ?>
+        </table>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar"
+                 data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+    </div>
+    <div class="cart main actions">
+        <?php if ($block->getContinueShoppingUrl()): ?>
+            <a class="action continue"
+               href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
+               title="<?= $block->escapeHtml(__('Continue Shopping')) ?>">
+                <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
+            </a>
+        <?php endif; ?>
+        <?php if ($block->getViewModel()->isClearShoppingCartEnabled()): ?>
+            <button type="button"
+                    name="update_cart_action"
+                    data-cart-empty=""
+                    value="empty_cart"
+                    title="<?= $block->escapeHtml(__('Clear Shopping Cart')) ?>"
+                    class="action clear" id="empty_cart_button">
+                <span><?= $block->escapeHtml(__('Clear Shopping Cart')) ?></span>
+            </button>
+        <?php endif ?>
+        <button type="submit"
+                name="update_cart_action"
+                data-cart-item-update=""
+                value="update_qty"
+                title="<?= $block->escapeHtml(__('Update Shopping Cart')) ?>"
+                class="action update">
+            <span><?= $block->escapeHtml(__('Update Shopping Cart')) ?></span>
+        </button>
+        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+    </div> 
+</form>
+
+<?php foreach ($block->getItems() as $item): ?>
+    <?php if ($item->getSku() == "ec-qr-product"): ?>
+    <?php
+    $blockObj= $block->getLayout()->createBlock('Ec\Qr\Block\Cart');
+    $config = $blockObj->getConfig();     
+    ?> 
+    <?php if ($config['campaign'] && $config['enabled']): ?>
+        <?php if($config['button-banner'] ==''):  ?>
+            <div class="main-qr-button-wrapper <?= $config['button-padding'] ?>">
+                <button type="button" id="qr-modal-btn" class="action primary admin-slider-poup-close checkout dis-qr-modal-btn" style="
+                <?php if ($config['button-background']) {
+                    echo 'background-color: ' . $config['button-background'] . ';border-color:' . $config['button-background'] . ';';
+                } ?>
+                <?php if ($config['button-color']) {
+                    echo 'color: ' . $config['button-color'] . ';';
+                } ?>
+                ">
+                <span class="gift-box-svg"><svg viewBox="0 0 821 872" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M771.061 325.131C774.954 325.131 778.14 321.945 778.14 318.052V282.661C778.14 251.34 752.835 226.035 721.513 226.035H572.339C594.282 206.57 608.261 178.965 608.261 148.174C608.261 89.6013 558.182 42 496.601 42C460.149 42 429.535 59.1648 410.07 90.4861C390.605 59.1648 359.991 42 323.538 42C261.957 42 211.878 89.6013 211.878 148.174C211.878 178.965 225.681 206.57 247.801 226.035H98.6261C67.3048 226.035 42 251.34 42 282.661V318.052C42 321.945 45.1852 325.131 49.0783 325.131H771.061ZM496.601 91.5479C529.515 91.5479 556.236 116.853 556.236 148.174C556.236 179.495 529.515 204.8 496.601 204.8C463.688 204.8 436.967 204.8 436.967 204.8C436.967 119.861 463.688 91.5479 496.601 91.5479ZM383.172 204.8C383.172 204.8 356.452 204.8 323.538 204.8C290.624 204.8 263.904 179.495 263.904 148.174C263.904 116.853 290.624 91.5479 323.538 91.5479C356.452 91.5479 383.172 119.861 383.172 204.8ZM771.061 367.131H49.0783C22.0164 367.131 0 345.114 0 318.052V282.661C0 228.278 44.2435 184.035 98.6261 184.035H174.493C171.456 172.391 169.878 160.35 169.878 148.174C169.878 66.4705 238.81 0 323.538 0C355.869 0 385.7 10.1325 410.07 28.7422C434.439 10.1325 464.27 0 496.601 0C581.33 0 650.261 66.4705 650.261 148.174C650.261 160.337 648.674 172.378 645.619 184.035H721.513C775.896 184.035 820.14 228.278 820.14 282.661V318.052C820.14 345.114 798.123 367.131 771.061 367.131ZM482.209 162.8H496.601C506.325 162.8 514.236 156.239 514.236 148.174C514.236 140.109 506.325 133.548 496.601 133.548C491.852 133.548 485.844 142.849 482.209 162.8ZM323.538 133.548C313.814 133.548 305.904 140.109 305.904 148.174C305.904 156.239 313.814 162.8 323.538 162.8H337.931C334.296 142.849 328.288 133.548 323.538 133.548Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M72.4694 366.139C64.6834 366.139 58.3129 372.51 58.3129 380.296V773.139C58.3129 804.284 83.7947 829.765 114.939 829.765H718V871.766H114.939C60.5564 871.766 16.3129 827.522 16.3129 773.139V380.296C16.3129 349.331 41.5046 324.139 72.4694 324.139V366.139Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M773.368 380.157C773.368 372.37 766.351 366 757.776 366V324C791.88 324 819.626 349.192 819.626 380.157V773C819.626 827.383 770.897 871.626 711 871.626V829.626C745.302 829.626 773.368 804.145 773.368 773V380.157Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M409.14 771.25C511.865 771.25 595.14 687.975 595.14 585.25C595.14 482.525 511.865 399.25 409.14 399.25C306.415 399.25 223.14 482.525 223.14 585.25C223.14 687.975 306.415 771.25 409.14 771.25Z" fill="<?php echo $config['button-color'] ?>"></path><path d="M517.634 567.946L369.264 480.231C357.209 473.107 338.747 480.02 338.747 497.639V673.027C338.744 676.596 339.686 680.102 341.477 683.189C343.269 686.276 345.845 688.834 348.945 690.602C352.045 692.37 355.558 693.287 359.127 693.257C362.696 693.228 366.193 692.254 369.264 690.435L517.634 602.76C520.662 600.974 523.172 598.429 524.916 595.376C526.659 592.323 527.576 588.868 527.576 585.352C527.576 581.836 526.659 578.381 524.916 575.329C523.172 572.276 520.662 569.73 517.634 567.944V567.946Z" fill="<?php echo $config['button-background'] ?>"></path></svg></span>
+                <span><?= $config['button-title'] ?></span>
+            </button>
+        </div>
+    <?php endif;  ?>
+    <?php if($config['button-banner'] !=''):  ?>
+        <div class="front-button <?= $config['button-padding'] ?>">
+            <div class="front-button-wrap-1">
+                <img id="qr-modal-btn" src="<?php echo $block->getMediaUrl().$config['button-banner'];?>" alt=""/>        
+            </div>
+        </div>
+    <?php endif;  ?> 
+    <?php endif ?>            
+    <?php endif ?>        
+ <?php endforeach ?>
+<?= $block->getChildHtml('checkout.cart.order.actions') ?>
+<?= $block->getChildHtml('shopping.cart.table.after') ?>
+
+
+

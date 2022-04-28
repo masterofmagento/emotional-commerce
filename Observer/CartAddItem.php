@@ -31,7 +31,7 @@ class CartAddItem implements ObserverInterface
         if ($item->getSku() === 'ec-qr-product' && $item->getQty() > 1) {
             $item->setQty(1);
             $item->save();
-            $this->messageManager->addErrorMessage(__('You cannot update the quantity for this product'));
+            $this->messageManager->addErrorMessage(__('This product already added to the cart and you cannot update the quantity for this product'));
         }
     }
 }
