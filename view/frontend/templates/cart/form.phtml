@@ -103,7 +103,7 @@
     <?php if($config['button-banner'] !=''):  ?>
         <div class="front-button <?= $config['button-padding'] ?>">
             <div class="front-button-wrap-1">
-                <img id="qr-modal-btn" src="<?php echo $block->getMediaUrl().$config['button-banner'];?>" alt=""/>        
+                <img id="qr-modal-btn" class="image-after-addtocart" src="<?php echo $block->escapeUrl($block->getUrl('media')).$config['button-banner'];?>" alt=""/>        
             </div>
         </div>
     <?php endif;  ?> 

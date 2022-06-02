@@ -69,10 +69,10 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                         <a class="accordion_toggle" href="javascript:void(0);"><?= __('What is Emotional Commerce?'); ?></a>
                         <div class="inner">
                           <div class="inner-wrap">
-                            <p><?= __('Emotional Commerce believes in the power of human connection in an increasingly digital world. We give businesses the tools to implement emotional experiences into their brand ecosystem. Currently, Emotional Commerce offers two main products:'); ?></p>
+                            <p><?= __('Emotional Commerce believes in the power of human connection in an increasingly digital world. We give businesses the tools to implement emotional experiences into their brand ecosystem. Currently Emotional Commerce offers two main products:'); ?></p>
                             <ol>
-                              <li><strong><?= __('Video Gift Messaging App:');?></strong> <?= __('Replacing the old written gift note, the Video Gift Messaging App gives eCommerce customers the ability to add a secure video message with each purchase. Currently available on both Shopify and Magento platforms as well as on custom-built eCommerce storefronts.');?></li>
-                              <li><strong><?= __('EC Code:');?></strong><?= __('Add secure video experiences to any medium with EC Code. Built on the Emotional Commerce platform, users can create white-labeled digital experiences delivered through highly customizable QR codes. With EC code, any business can engage its consumers with dynamic, customizable content and drive direct, measurable actions.');?></li>
+                              <li><strong><?= __('Video Gift Messaging App: ');?></strong> <?= __('Replacing the old written gift note, the Video Gift Messaging App gives eCommerce customers the ability to add a secure video message with each purchase. Currently available on both Shopify and Magento platforms as well as on custom-built eCommerce storefronts.');?></li>
+                              <li><strong><?= __('EC Code: ');?></strong><?= __('Add secure video experiences to any medium with EC Code. Built on the Emotional Commerce platform, users can create white-labeled digital experiences delivered through highly customizable QR codes. With EC code, any business can engage its consumers with dynamic, customizable content and drive direct, measurable actions.');?></li>
                             </ol>
                           </div>
                         </div>
@@ -82,16 +82,16 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                         <div class="inner">
                           <div class="inner-wrap">
                             <ul>
-                              <li><?= __('Campaigns are made up of occasion designs that are attached to secure customer-generated QR codes. These campaigns are generated via the Emotional Commerce platform within your automated account and are connected to the Video Gift Messaging application. There is no limit to the amount of campaigns and occasions you can have. The application will list your campaigns in the campaigns tab for you to turn on or off. Emotional Commerce has gone ahead and created a default campaign containing 5 occasions during install. The default campaign can be edited on the EC platform at any time.');?>
+                              <li><?= __('Campaigns are made up of landing page designs that are attached to secure customer-generated QR codes. These campaigns are generated via the Emotional Commerce platform within your automated account and are connected to the Video Gift Messaging application. There is no limit to the amount of campaigns and occasions you can have. The application will list your campaigns in the campaigns tab for you to turn on or off. Emotional Commerce has gone ahead and created a default campaign containing 5 landing pages during install. The default campaign can be edited on the EC platform at any time.');?>
                               
                             </li>
                             <li><?= __('The files are typically organized by folders, such as ‘Layout’, ‘Template’, and ‘Sections’.');?></li>
-                            <li><?= __('Here is an example campaign:')?> <strong><?= __('Campaign: “Q4”');?></strong>
+                            <li><?= __('Here is an example campaign: ')?> <strong><?= __('Campaign: “Q4”');?></strong>
                               <ul>
-                                <li><?= __('Occasions: Christmas, Happy Holidays, Hanukkah, Happy Thanksgiving, Let’s Celebrate, Surprise!');?></li>
+                                <li><?= __('Landing Pages: Christmas, Happy Holidays, Hanukkah, Happy Thanksgiving, Let’s Celebrate, Surprise!');?></li>
                               </ul>
                             </li>
-                            <li><?= __('Turn on a campaign in the campaigns tab and the occasions associated will be available to your customers in the app pop up. occasions can be managed within the ‘occasion’ tab. Similarly, you can turn these on and off as you please. Reminder, only one campaign can be connected at a time.');?></li>
+                            <li><?= __('Turn on a campaign in the campaigns tab and the landing pages associated will be available to your customers in the app pop up. Landing pages can be managed within the ‘Occasions’ tab. Similarly, you can turn these on and off as you please. Reminder, only one campaign can be connected at a time.');?></li>
                           </ul>
                         </div>
                       </div>
@@ -100,64 +100,52 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                       <a class="accordion_toggle" href="javascript:void(0);"><?= __('How to create a campaign?');?></a>
                       <div class="inner">
                         <div class="inner-wrap">
-                          <p><strong><?= __('How to create a campaign:');?></strong></p>
+                          <p><strong><?= __('How to create a campaign: ');?></strong></p>
                           <ol>
                             <li><?= __('Head to your Emotional Commerce account');?></li>
-                            <li><?= __('Click the “campaigns” tab');?></li>
+                            <li><?= __('Choose “Custom Integration” or ”Shopify” from the use cases in the menu');?></li>
                             <li><?= __('Click “create campaign”');?></li>
-                            <li><?= __('Name your campaign and add a cover photo');?></li>
-                            <li><?= __('Choose “E-Commerce” campaign type. Here you will begin to build the occasions within that campaignCreate QR package');?></li>
-                            <li><?= __('Name your occasion');?></li>
-                            <li><?= __('Choose a occasion (this is a template to get you started!)');?></li>
-                            <li><?= __('Design your occasion in the design lab. You can always come back to this QR and edit your occasion in real time.');?></li>
-                            <li><?= __('Next you will see the QR builder, this is where you can design your QR code associated with this campaign. Visit FAQ qr code design for these instructions');?></li>
+                            <li><?= __('Name your campaign');?></li>
+                            <li><?= __('Create an Occasion');?><br><i><?= __('Here you will begin to build the landing page designs within that campaign');?></i></li>
+                            <li><?= __('Name your Occasion and choose a landing page design (this is a template to get you started!');?></li>
+                            
+                            <li><?= __('Design your occasion in the design lab.');?><br><i><?= __('You can always come back to this occasion and edit your landing page design in real time.');?></i></li>
+                           
+                            <li><?= __('Next you will see the QR code builder, this is where you can design the QR codes associated with this occasion.');?><br><i><?= __('Visit FAQ qr code design for these instructions');?></i></li>
                           </ol>
                         </div>
                       </div>
                     </li>
                     <li>
-                      <a class="accordion_toggle" href="javascript:void(0);"><?= __('What is a Occasion?');?></a>
+                      <a class="accordion_toggle" href="javascript:void(0);"><?= __('What is a Landing Page?');?></a>
                       <div class="inner">
-                        <div class="inner-wrap">
-                          <p><strong><?= __('How to create a campaign:');?></strong></p>
+                        <div class="inner-wrap">                          
                           <ul>
-                            <li><?= __('A occasion is the page a gift recipient will scan into for their video viewing experience. occasions have features such as: logo placement, multiple text inputs, CTA, and background designs. Occasions are fully customizable via the Design lab in your Emotional Commerce account. You can edit and/or build new occasion at any time. Customers will be able to choose what occasion they would like to deliver with the video message in the button pop up.');?></li>
-                            <li><?= __('Emotional Commerce has gone ahead and created a default campaign containing 5 default occasions for you. You can find these in the occasion tab in your application. Similar to campaigns, occasions can be turned on or off in the application.');
+                            <li><?= __('A landing page is the page a gift recipient will scan into for their video viewing experience. Landing pages have features such as: logo placement, multiple text inputs, CTA, and background designs. Landing pages are fully customizable via the Design lab in your Emotional Commerce account. You can edit and/or build new landing pages at any time. Customers will be able to choose what landing page design they would like to deliver with the video message in the button pop up.');?></li>
+                            <li><?= __('Emotional Commerce has gone ahead and created a default campaign containing 5 default landing pages for you. You can find these in the ‘Occasions’ tab in your application. Similar to campaigns, landing pages can be turned on or off in the application.');
                             ?> 
-                            <strong><?= __('Occasions are attached to a specific campaign and can only be set to live if the associated campaign is turned on.');?>
+                            <strong><?= __('Landing pages are attached to a specific campaign and can only be set to live if the associated campaign is turned on.');?>
                           </strong></li>
-                          <li><?= __('Here is an example of a occasion:');?><e><?= __('Let’s Celebrate: Insert Occasion graphic');?></e></li>
+                          <li><?= __('Here is an example of a landing page: ');?><br><e><i><?= __('Let’s Celebrate: Insert Theme graphic');?></i></e></li>
                         </ul>
                       </div>
                     </div>
                   </li>
                   <li>
-                    <a class="accordion_toggle" href="javascript:void(0);"><?= __('How to create a occasion?');?></a>
+                    <a class="accordion_toggle" href="javascript:void(0);"><?= __('How to create a landing page?');?></a>
                     <div class="inner">
                       <div class="inner-wrap">
-                        <p><strong><?= __('How to create a new occasion design within a campaign');?></strong></p>
+                        <p><strong><?= __('How to create a new landing page design within a campaign');?></strong></p>
                         <ol>
                           <li><?= __('Head to your Emotional Commerce account');?></li>
-                          <li><?= __('Click the "campaigns" tab');?></li>
-                          <li><?= __('Here is an example of a occasion:');?><e><?= __('Let’s Celebrate: Insert Occasion graphic');?></e></li>
-                          <li><?= __('Choose the campaign you wish to add a occasion to');?></li>
-                          <li><?= __('Create QR package');?></li>
+                          <li><?= __('Choose “Custom Integration” or ”Shopify” from the use cases in the menu');?></li>                         
+                          <li><?= __('Choose the campaign you wish to add a theme to');?></li>
+                          <li><?= __('Create an occasion');?></li>
                           <li><?= __('Name your occasion');?></li>
-                          <li><?= __('Choose a occasion (this is a template to get you started!)')?></li>
-                          <li><?= __('Design your occasion in the design lab.');?> <e><?= __('You can always come back to this QR and edit your occasion in real time.');?></e></li>
-                          <li><?= __('Next you will see the QR builder, this is where you can design your QR code associated with this campaign. <e>Visit FAQ qr code design for these instructions');?></e></li>
-                        </ol>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <a class="accordion_toggle" href="javascript:void(0);"><?= __('What Are My Store’s Fulfillment Options?');?></a>
-                    <div class="inner">
-                      <div class="inner-wrap">
-                        <p><?= __('The Video Gift Messaging application currently has two fulfillment options to choose from: Direct download from magento orders and ShipStation integration. The application is not limited to these options and can seamlessly operate through your current fulfillment flow:');?></p>
-                        <ol>
-                          <li><strong><?= __('Direct Download:');?></strong> <?= __('Within the app’s Fulfillment tab you have a list of all Magento orders containing VGM QR Codes for direct download.');?></li>
-                          <li><strong><?= __('ShipStation Extension:');?></strong> <?= __('VGM QR codes generated can be integrated with your ShipStation account. See ShipStation integration for instructions on how to embed ShipStation code snippet to con');?></li>
+                          <li><?= __('Choose a landing page design (this is a template to get you started!)')?></li>
+                          <li><?= __('Design your landing page in the design lab.');?><br> <e><i><?= __('You can always come back to this occasion and edit your landing page design in real time.');?></e></i></li>
+                          <li><?= __('Next you will see the QR code builder, this is where you can design the QR code associated with this occasion.');?> 
+                          <br><i><e><?= __('Visit FAQ qr code design for these instructions');?> </e></i></li>
                         </ol>
                       </div>
                     </div>
@@ -182,8 +170,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                     <a class="accordion_toggle" href="javascript:void(0);"><?= __('How to customize your button and pop up for the online store experience?');?></a>
                     <div class="inner">
                       <div class="inner-wrap">
-                        <p><strong><?= __('Button:');?></strong><?= __('The button customization can be found in the button tab within the application. Store owners customize the in store button here. Button customization features are: Button color, text color, and text. Alternatively a store owner can upload a banner in place of the button. A button can also be left justified, centered, or right justified.')?></p>
-                        <p><strong><?= __('Pop-Up:');?></strong> <?= __('The VGM pop up is launched when a customer clicks the VGM button or banner in the online store. The Pop up contains occasion options, graphic placement, text, and actionable buttons for record and upload and can be forced. All of these features are fully customizable with text, colors, occasions and a graphic. Occasions that are turned on in the app will be reflected here. Pop up customization is done in two locations based on your store occasion.');?></p>
+                        <p><strong><?= __('Button: ');?></strong><?= __('The button customization can be found in the button tab within the application. Store owners customize the in store button here. Button customization features are: Button color, text color, and text. Alternatively a store owner can upload a banner in place of the button. A button can also be left justified, centered, or right justified.')?></p>
+                        <p><strong><?= __('Pop-Up: ');?></strong> <?= __('The VGM pop up is launched when a customer clicks the VGM button or banner in the online store. The Pop up contains landing page designs options, graphic placement, text, and actionable buttons for record and upload and can be forced. All of these features are fully customizable with text, colors, themes and a graphic. Landing pages that are turned on in the app will be reflected here. Pop up customization is done in two locations based on your store theme.');?></p>
                         <p><strong><?= __('Popup design can be edited at any time.');?></strong></p>
                       </div>
                     </div>
@@ -193,23 +181,23 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                     <div class="inner">
                       <div class="inner-wrap">
                         <ul>
-                          <li><?= __('Video Gift Messages are delivered through secure QR codes for the recipient to scan upon delivery. Emotional Commerce has created a default QR code design containing a default occasion for your store. The logo and color of the QR code can be customized via the Emotional Commerce platform. You can get here by visiting “Advanced app personalization” within “Customize” in your application.');?></li>
-                          <li><?= __('Example QR code customization:');?>
+                          <li><?= __('Video Gift Messages are delivered through secure QR codes for the recipient to scan upon delivery. Emotional Commerce has created a default QR code design containing a default theme for your store. The logo and color of the QR code can be customized via the Emotional Commerce platform. You can get here by visiting “Advanced app personalization” within “Customize” in your application.');?></li>
+                          <li><?= __('Example QR code customization: ');?>
                           <ul>
                             <li><?= __('Insert design');?></li>
                           </ul>
                         </li>
                         <li><?= __('How to customize your QR code');?>
-                        <ul>
+                        <ol>
                           <li><?= __('Head to your Emotional Commerce account');?></li>
                           <li><?= __('Click the campaigns tab');?></li>
                           <li><?= __('Choose the campaign you are using');?></li>
-                          <li><?= __('Bypass the Design lab step if you are happy with your occasion and click save');?></li>
+                          <li><?= __('Bypass the Design lab step if you are happy with your theme and click save');?></li>
                           <li><?= __('Next you will see the QR builder, this is where you can design your QR code associated with this campaign.');?></li>
                           <li><?= __('Upload your QR logo');?></li>
-                          <li><?= __('Choose a color for the QR pattern.');?> <span><?= __('(Tip: scan the qr code on the page to make sure the QR is scannable)');?></span></li>
+                          <li><?= __('Choose a color for the QR pattern.');?><br><i><e><?= __('(Tip: scan the qr code on the page to make sure the QR is scannable)');?></e></i></li>
                           <li><?= __('Once satisfied, hit save and continue');?></li>
-                        </ul>
+                        </ol>
                       </li>
                     </ul>
                   </div>
@@ -221,7 +209,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
       </div>
     </div>
     <div class="bottom-footer-text qr-bttom-text">
-      <p><?= __('If you are unable to find an answer to your questions within the FAQ’s below please reach out to our team');?> <a href="<?= $block->getContactSectionUrl(); ?>" target="blank"><?= __('here!');?></a></p>
+      <p><?= __("Can't find an answer, please reach out to our team!");?> <a href="<?= $block->getContactSectionUrl(); ?>" target="blank"><?= __('EMAIL US HERE');?></a></p>
     </div>
   </div>
 </div>

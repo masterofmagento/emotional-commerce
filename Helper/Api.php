@@ -33,6 +33,16 @@ class Api extends AbstractHelper
 
     }
 
+    public function getApiEndPointUrl(){
+        return self::API_URL;
+    }
+
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        return $mediaUrl;
+    }
+
     public function getCampaigns($key, $secret, $domain)
     {
         $headers =  [
@@ -320,7 +330,7 @@ class Api extends AbstractHelper
     }
 
 
-    public function createEvent($ecOrder, $orderId)
+    public function createEvent($ecOrder)
     {
         $config = $this->getConfig();
 
@@ -334,10 +344,11 @@ class Api extends AbstractHelper
         $slug = $ecOrder->getUrl();
         $slug = explode('/', $slug);
         $slug = end($slug);
+        $orderId = $ecOrder->getOrderId();
 
         $regUrl = $config['domain'] . '.' . self::API_URL . "/api/v2/qr-package/" . $slug . "/checkout-event";
         $data = [        
-            'slug' => curl_file_create($slug),
+            'slug' => $slug,
             'qr_package_name' => $orderId
         ];
         $regCurl = curl_init($regUrl);

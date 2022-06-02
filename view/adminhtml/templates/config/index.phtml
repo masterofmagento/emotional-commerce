@@ -35,14 +35,14 @@ if (!$config['key'] || !$config['secret'] || !$config['domain']) : ?>
                                             <div class="form-fild domaintext">
                                                 <label for="domain"><?= __('Domain'); ?><span class="red">*</span></label>
                                                 <input name="domain" type="text" placeholder="Domain" required />
-                                                <span class="input-group-text" id="domain-addon">.ec-hd-tst-svr.tk</span>
+                                                <span class="input-group-text" id="domain-addon"><?= $block->getDomainUrl() ?></span>
                                             </div>
                                             <div class="form-submitbtn">
                                                 <input id="submit" type="submit" value="Confirm" />
                                             </div>
                                             <div class="register-bottom-description">
-                                                <p>Do you already have an account with Emotional Commerce?</p>
-                                                <span data-tab="Signin" class="sign-login-link">Log In</span>
+                                                <p><?= __('Do you already have an account with Emotional Commerce?'); ?></p>
+                                                <span data-tab="Signin" class="sign-login-link"><?= __('Log In'); ?></span>
                                             </div>
                                         </form>
                                     </div>

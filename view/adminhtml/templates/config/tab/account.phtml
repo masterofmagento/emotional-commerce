@@ -124,7 +124,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                     <label for="domain"><?= __('Domain'); ?><span class="red">*</span></label>
                     <div class="domaininput">
                       <input name="domain" type="text" placeholder="Domain" value="<?= $config['domain'] ?>" required readonly/>
-                      <span class="input-group-text" id="domain-addon" >.ec-hd-tst-svr.tk</span>
+                      <span class="input-group-text" id="domain-addon" ><?= $block->getApiEndPointUrl() ?></span>
                     </div>
                   </div>
                   

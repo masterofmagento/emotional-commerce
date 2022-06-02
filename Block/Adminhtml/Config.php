@@ -47,6 +47,9 @@ class Config extends \Magento\Backend\Block\Template
      * @var \Magento\Cms\Model\PageFactory
      */
     protected $pageFactory;
+
+    protected $ecOrderFactory;
+
     protected $_orderCollectionFactory;
 
     public function __construct(
@@ -56,6 +59,7 @@ class Config extends \Magento\Backend\Block\Template
         \Ec\Qr\Model\ConfigFactory $configFactory,
         \Ec\Qr\Helper\Api $apiHelper,
         \Magento\Cms\Model\PageFactory $pageFactory,
+        \Ec\Qr\Model\EcOrderFactory $ecOrderFactory,
         \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orderCollectionFactory
     ) {
         $this->context = $context;
@@ -64,6 +68,7 @@ class Config extends \Magento\Backend\Block\Template
         $this->configFactory = $configFactory;
         $this->apiHelper = $apiHelper;
         $this->pageFactory = $pageFactory;
+        $this->ecOrderFactory = $ecOrderFactory;
         $this->_orderCollectionFactory = $orderCollectionFactory;
         parent::__construct($context);
     }
@@ -89,6 +94,18 @@ class Config extends \Magento\Backend\Block\Template
         $url = $this->context->getUrlBuilder();
 
         return $url->getUrl('ecqr/config/install');
+    }
+
+    public function getQrMediaUrl()
+    {
+        $mediaUrl = $this->apiHelper->getMediaUrl();
+        return $mediaUrl;
+    }
+
+    public function getOrderQrImage()
+    {
+        $ecOrder = $this->ecOrderFactory->create();
+        return $ecOrder;
     }
 
 

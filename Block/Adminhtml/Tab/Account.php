@@ -21,4 +21,9 @@ class Account extends Config
         $impersonateUrl = $this->apiHelper->getImpersonateUrl();     
         return $impersonateUrl;
     }   
+    public function getApiEndPointUrl()
+    {
+        $apiEndPointUrl = $this->apiHelper->getApiEndPointUrl();     
+        return $apiEndPointUrl;
+    }   
 }

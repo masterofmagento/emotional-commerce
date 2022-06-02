@@ -8,13 +8,14 @@ class Orders extends Config
 {
     public function getOrders()
     {
+        $pageSize= 10;
         $collection = $this->_orderCollectionFactory->create();
         $collection->getSelect()->join(array('order_item' => 'sales_order_item'), 'main_table.entity_id = order_item.order_id');
         if ($this->getSearch()) {
             $collection->addFieldToFilter('increment_id', ['like' => "%".$this->getSearch()."%"]);
         }
         $collection->addFieldToFilter('order_item.sku', ['eq' => 'ec-qr-product']);
-        
+        $collection->setPageSize($pageSize);        
         return $collection;
     }
 

@@ -55,7 +55,7 @@ class Printqr extends \Magento\Backend\Block\Template
         }
 
         if (!$ecOrder->getPrinted()) {
-            $response = $this->apiHelper->createEvent($ecOrder, $orderId);
+            $response = $this->apiHelper->createEvent($ecOrder);
             if (!$response['success']) {
                 return '<p>It seems Something went wrong, please try again or contact our support</p>';
             }

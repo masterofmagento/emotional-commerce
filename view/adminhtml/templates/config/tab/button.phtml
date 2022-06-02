@@ -76,7 +76,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                         <div class="signin-form-tab1 button-tab">
                           <div class="button-tab-wrap">
                             <div class="button-setting-title">
-                              <h4><?= __('Step 1: Customize your in-store button or banner with the design inputs below.'); ?></h4>
+                              <h3><?= __('Step 1: Customize your in-store button or banner with the design inputs below.'); ?></h3>
                             </div>
                             <div class="button-setting-title">
                               <h5><?= __('Make sure to click save in order to see your changes reflected in real time!'); ?></h5>
@@ -167,7 +167,7 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                           </div>
                           <div id="Installation__Tab" class="tab-stap-two dashboardbody__tabcontent">
                             <div class="button-setting-title">
-                              <h4><?= __('Step 2: Add Button OR Banner to your store'); ?></h4>
+                              <h3><?= __('Step 2: Add Button OR Banner to your store'); ?></h3>
                             </div>
                             <div class="stap-video-wrap">
                               <div class="stap-video">
@@ -175,9 +175,9 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                               </div>
                             </div>
                             <div class="video-bootm-tagline">
-                              <h2><?= __('To add the "Add Popup" button on any page, just copy the below shortcode and simply place it inside your CMS page, Static block OR call using a widget, and you can enable the Popup Button OR Banner without any custom coding and easily manage the behavior from the admin.'); ?></h2>
-                              <input class="linkToCopy" value='{{block class="Ec\Qr\Block\Cart" template="Ec_Qr::dynamicbtn.phtml"}}' readonly="readonly" />
-                              <button class="copyButton"><?= __('Click here to copy code'); ?></button>
+                              <h3><?= __('To add the "Add Popup" button on any page, just copy the below shortcode and simply place it inside your CMS page, Static block OR call using a widget, and you can enable the Popup Button OR Banner without any custom coding and easily manage the behavior from the admin.'); ?></h3>
+                              <input class="linkToCopy" value='{{block class="Ec\Qr\Block\Cart" template="Ec_Qr::dynamicbtn.phtml" cacheable="false"}}' readonly="readonly" />
+                              <button type="button" class="copyButton"><?= __('Click here to copy code'); ?></button>
                             </div>
                           </div>
                         </div>

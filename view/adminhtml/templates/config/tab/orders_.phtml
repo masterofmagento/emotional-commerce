@@ -108,7 +108,6 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
 
                                                     $newCollection->setPageSize($pageSize);
                                                     $newCollection->setCurPage($page);
-                                                    $newCollection->setOrder('entity_id','DESC');
 
 
                                                     foreach ($newCollection->getItems() as $order) {
@@ -118,21 +117,6 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                                             \IntlDateFormatter::MEDIUM,
                                                             true
                                                         );
-
-                                                         //download QR Image functionlaity
-                                                         $ecOrder = $block->getOrderQrImage();
-                                                         $qrImage = $ecOrder->load($order->getId(), 'order_id');
-
-                                                         if($qrImage->getQr() !=''){
-                                                         $url = $qrImage->getQr();
-                                                         $img = 'media/ecqr/' . $order->getId() . '.png';
-                                                         // Save image
-                                                         file_put_contents($img, file_get_contents($url)); 
-                                                         $qrImageUrl = $block->getQrMediaUrl() . 'ecqr/' . $order->getId() . '.png';
-                                                        }else{
-                                                            $qrImageUrl = '';
-                                                        } 
-
                                                     ?>
                                                         <tr>
                                                             <td><a class="table-btn" href="<?= $block->getOrderViewUrl($order->getId()); ?>" target="blank">#<?= $order->getIncrementId(); ?></a></td>
@@ -146,7 +130,8 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                                             } ?>
                                                             <td><?= $order->getStatus(); ?></td>
                                                             <td><?= $order->getTotalItemCount(); ?></td>                
-                                                            <td><a class="table-btn" id="download-qr-image" href="<?php echo $qrImageUrl ?>" download> 
+                                                            <td><a class="table-btn" download="<?= $block->getPrintqr($order->getId()); ?>">
+                                                             <a class="table-btn" id="download-qr-image" href="<?= $block->getPrintqrurl($order->getId(), 1); ?>" download>  
                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <g clip-path="url(#clip0_10_2)">
                                                             <path d="M11 15.5834C10.6205 15.5834 10.3125 15.2754 10.3125 14.8959V0.6875C10.3125 0.307999 10.6205 0 11 0C11.3795 0 11.6875 0.307999 11.6875 0.6875V14.8959C11.6875 15.2754 11.3795 15.5834 11 15.5834Z" fill="black"/>
@@ -199,45 +184,4 @@ if ($config['key'] || $config['secret'] || $config['domain']) : ?>
                                             </ol>
                                            
                                             
-                                            <code class="linkToCopy" readonly="readonly"  style="width: 100%; min-height: 150px; text-align:center;" >
-                                                <span><</span><span>h3 id="emocomh3" style="width:100%; text-align:center;"><br>
-                                                    SCAN THE QR BELOW FOR A SPECIAL<</span><span>br/><br>VIDEO MESSAGE FROM YOUR GIFTER!</span><br>
-                                                <span><</span><span>/h3></span><br>
-                                                <span><</span><span>img src="<?= $block->getUrl()?>ecqr/image/index/order/[#OrderId]/token/<?=$config['token']?>"<br>
-                                                    onerror="document.getElementById('emocomh3').style.display='none'; this.style.display='none';"<br>
-                                                    style="max-width:100px; max-height:100px;display:block; margin:auto;" <br>/></span>
-                                            </code>
-                                           <!-- <div class="CodeCopyButton">
-                                                <button class="copyButton">Click here to copy code</button>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endif; ?>
-<style type="text/css">
-  .order-custom-pagination {
-    display: inline-block;
-   }
- .order-custom-pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin-top: 9px;
-}
-.order-custom-pagination a:hover:not(.active) {
-    background-color: #ddd;
-} 
-
-.order-custom-pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+                                            <code class="linkToCopy" readonly="readonly"  style="width: 100%; min-height: 150px; text-alig

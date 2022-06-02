@@ -77,6 +77,11 @@ class Auth extends \Magento\Backend\Block\Template
         return $url->getUrl('ecqr/config/setprice');
     }
 
+    public function getDomainUrl()
+    {
+        return $this->apiHelper->getApiEndPointUrl();
+    }
+
     public function getConfig()
     {
         $configFactory = $this->configFactory->create();

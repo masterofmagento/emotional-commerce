@@ -24,7 +24,7 @@ class OrderPlaceAfter implements ObserverInterface
 
     public function execute(Observer $observer)
     {
-        $order = $observer->getEvent()->getOrder();
+        $order = $observer->getEvent()->getOrder();       
         $incrementId = $order->getIncrementId();
         $orderId = $order->getId();
 
@@ -35,6 +35,12 @@ class OrderPlaceAfter implements ObserverInterface
             return;
         }
 
+        $ecOrderData = $this->ecOrder->create()->load($orderId, 'order_id');
+
+        if (!$ecOrderData->getPrinted()) {
+        $this->apiHelper->createEvent($ecOrderData, $orderId); //Send order id
+        }
+        
         $qrData = $this->apiHelper->uploadVideo($qrFile);
 
         unlink($qrFile);
@@ -53,17 +59,5 @@ class OrderPlaceAfter implements ObserverInterface
             ]
         );
         $ecOrder->save();
-        
-        $response = $this->apiHelper->createEvent($ecOrder); //Send order id        
-
-        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
-        $logger = new \Zend_Log();
-        $logger->addWriter($writer);
-        $logger->info('Text Log'); //Text Log
-        $logger->info('Sanjay Gohil'.print_r($response, true)); // Array Log
-
-        if (!$response['success']) {
-            return '<p>It seems Something went wrong, please try again or contact our support</p>';
-        }
     }
 }

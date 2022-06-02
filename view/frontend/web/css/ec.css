@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 #qr-modal-content {
     display: none;
 }
-.modal-popup {
-    font-family: 'Roboto';
+.modal-popup {   
     font-weight: 400;
 }
 .form-wrapper .image-wrapper {
@@ -23,11 +21,14 @@
     height: 32px;
     line-height: 16px;
 }
-.dis-qr-modal-btn {
-    opacity: 50%;
-}
 .main-button-icon {
     height: 32px;
+}
+.image-after-addtocart{
+    opacity: 0.5;
+}
+.dis-qr-modal-btn {
+    opacity: 50%;
 }
 #qr-modal-btn {
     display: flex;
@@ -35,9 +36,6 @@
     justify-content: center;
     border: none;
     padding: 8px 10px;
-}
-.dis-qr-modal-btn {
-    opacity: 50%;
 }
 #qr-modal-btn .gift-box-svg {
     display: flex;
@@ -73,7 +71,7 @@
 .main-qr-button-wrapper.button-topleft-option5,
 .front-button.button-topleft-option5{justify-content:right;padding:0px;}
 .main-qr-button-wrapper.button-bottomleft-option6,
-.front-button.button-bottomleft-option6{justify-content:right;padding:15px;}
+.front-button.button-bottomleft-option6{justify-content:right;padding:15px 15px 30px;}
 #submit {
     width: 100%;
     height: 50px;
@@ -108,9 +106,16 @@
     margin-bottom: 15px;
 }
 .mymodal-recording-tag {
-    color: #990000;
+    /*color: #990000;
     text-align: center;
-    font-weight: 700;
+    font-weight: 700;*/
+    padding: 5px !important;
+    margin: 5px 0 0 0 !important;
+    background-color: transparent;
+    color: #000;
+    text-align: left;
+    width: calc(100% - 10px);
+    font-weight: 400;
 }
 .upload-button img {
     height: 16px;
@@ -327,14 +332,27 @@ i.icon-remove{
 }
 .mymodal-recording-tag {
     padding: 5px !important;
-    margin: 0px !important;
-    background-color: #000;
-    color: #fff;
+    margin: 5px 0 0 0 !important;
+    background-color: transparent;
+    color: red;
     text-align: left;
     width: calc(100% - 10px);
 }
 .record-wrapper video {
     display: block;
+}
+#qr-modal-content .upload-button svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+@media screen and (max-width: 800px){
+    body .modal-popup.modal-slide.ec-sub-cart-popup {
+        margin: auto;
+        width: calc(100% - 15px);
+        left: 0;
+    }
 }
 @media only screen and (max-width: 767px){
     .modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
@@ -345,5 +363,10 @@ i.icon-remove{
     }
     .modal-popup.ec-main-cart-popup.modal-slide._inner-scroll {
         display: block;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
     }
 }
