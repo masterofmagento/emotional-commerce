@@ -203,6 +203,7 @@ if ($config['campaign'] && $this->canShow() && $config['enabled']) :
             $("#qr-modal-btn").click(function() {
                 $('#qr-modal-content').show();
                 $('#qr-modal-content').modal('openModal');
+                $("#record-notsupport-error").hide();
             });
             if(forcePopup == 1){
              $('#qr-modal-content').show();
@@ -342,7 +343,7 @@ if ($config['campaign'] && $this->canShow() && $config['enabled']) :
             }
             
              //To check supported devices
-             $("#qr-modal-btn").click(function () { 
+             $("#record").click(function () { 
                 navigator.mediaDevices.getUserMedia({
                     audio: true,
                     video: true
@@ -364,13 +365,10 @@ if ($config['campaign'] && $this->canShow() && $config['enabled']) :
                     }
 
                 }).catch(function (err) {
-                    $("#record").click(function(){ 
-                          $(".recording-popup-open").removeClass("active");
-                          $("#record-notsupport-error").show();
-                      });
-                    //$('#record').hide();
-                    //$('#upload-button').css('max-width', '100%');
-                    console.log('Device not supported'); 
+                    
+                  $(".recording-popup-open").removeClass("active");
+                  $("#record-notsupport-error").show();
+                  console.log('Device not supported'); 
                 });
             });    
                 //To check supported devices code end here

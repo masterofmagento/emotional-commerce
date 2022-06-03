@@ -190,6 +190,7 @@ if ($config['campaign'] && $config['enabled']) :
              $("#qr-modal-btn").click(function() {
                $('#qr-modal-content').show();
                $('#qr-modal-content').modal('openModal');
+                $("#record-notsupport-error").hide();
            });
              if(forcePopup == 1){
                 $('#qr-modal-content').show();
@@ -275,7 +276,8 @@ if ($config['campaign'] && $config['enabled']) :
               var popup = modal(options, $('.admin-popup-description'));
               $("#btn-desc").click(function() {
                $('.admin-popup-description').show();  
-               $('.admin-popup-description').modal('openModal');                   
+               $('.admin-popup-description').modal('openModal');  
+
            });
 
               document.addEventListener('keydown', (event) => {
@@ -284,7 +286,7 @@ if ($config['campaign'] && $config['enabled']) :
               }
           })
               //To check supported devices
-              $("#qr-modal-btn").click(function () { 
+              $("#record").click(function () { 
                navigator.mediaDevices.getUserMedia({
                    audio: true,
                    video: true
@@ -306,10 +308,10 @@ if ($config['campaign'] && $config['enabled']) :
                    }
 
                }).catch(function (err) {
-                  $("#record").click(function(){ 
+                  //$("#record").click(function(){ 
                         $(".recording-popup-open").removeClass("active");
                         $("#record-notsupport-error").show();
-                    });
+                    //});
                    //jQuery('#record').hide();
                    //jQuery('#upload-button').css('max-width', '100%');
                    console.log('Device not supported'); 

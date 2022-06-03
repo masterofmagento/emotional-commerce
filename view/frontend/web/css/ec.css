@@ -334,7 +334,7 @@ i.icon-remove{
     padding: 5px !important;
     margin: 5px 0 0 0 !important;
     background-color: transparent;
-    color: red;
+    color: #000;
     text-align: left;
     width: calc(100% - 10px);
 }
