@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Ec_Qr::css/ec.css"/>
+    </head>
+    <body>
+        <referenceBlock name="content">
+            <referenceContainer name="checkout.cart.container">
+                <block class="Ec\Qr\Block\Cart" after="-" template="Ec_Qr::checkout/cart/qr.phtml" />
+            </referenceContainer>
+        </referenceBlock>
+        <referenceBlock name="checkout.cart.form">
+           <action method="setTemplate">
+               <argument name="template" xsi:type="string">Ec_Qr::cart/form.phtml</argument>
+           </action>
+       </referenceBlock>
+   </body>   
+</page>

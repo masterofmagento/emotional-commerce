@@ -1,0 +1,142 @@
+<?php $config = $block->getConfig();
+if ($config['key'] || $config['secret'] || $config['domain']): ?>
+  <div class="app-dashboard-group">
+    <div class="app-dashboard-group-wrap">
+      <div class="flexbox">
+        <div class="col left-col">
+          <div class="col-wrap">
+            <ul class="dashboardmenu-list">
+              <li class="dashboardmenu-list-li current" dashboard-tab="tab11">
+                <a style="color: #ffffff !important;" href="<?= $block->geConfigUrl(); ?>" class="admin__page-nav-link item-nav">
+                  <svg width="19" height="19" viewBox="0 0 19 19" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.8889 0H2.11111C0.95 0 0 0.95 0 2.11111V16.8889C0 18.05 0.95 19 2.11111 19H16.8889C18.05 19 19 18.05 19 16.8889V2.11111C19 0.95 18.05 0 16.8889 0ZM2.11111 16.8889V2.11111H8.44444V16.8889H2.11111ZM16.8889 16.8889H10.5556V9.5H16.8889V16.8889ZM16.8889 7.38889H10.5556V2.11111H16.8889V7.38889Z"></path>
+                  </svg>
+                  <?= __('DASHBOARD'); ?>
+                </a>
+              </li>
+              <li class="dashboardmenu-list-li" dashboard-tab="tab3">
+                <a href="<?= $block->geOrdersUrl(); ?>" class="admin__page-nav-link item-nav">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.6875 14.5C9.10281 14.5 7 12.3972 7 9.8125V7.9375C7 7.41972 7.41972 7 7.9375 7C8.45528 7 8.875 7.41972 8.875 7.9375V9.8125C8.875 11.3633 10.1367 12.625 11.6875 12.625C13.2383 12.625 14.5 11.3633 14.5 9.8125V7.9375C14.5 7.41972 14.9197 7 15.4375 7C15.9553 7 16.375 7.41972 16.375 7.9375V9.8125C16.375 12.3972 14.2722 14.5 11.6875 14.5Z"></path> <path d="M19.3125 24H4.6875C2.10281 24 0 21.8972 0 19.3125C0 18.9465 0.0424688 18.5817 0.126234 18.2284C0.126609 18.2268 0.126984 18.2252 0.127406 18.2235L3.85144 2.88084C4.25452 1.18458 5.75456 0 7.5 0H16.5C18.2452 0 19.7451 1.18416 20.1484 2.88009L23.8726 18.2235C23.873 18.2252 23.8734 18.2268 23.8738 18.2285C23.9575 18.5819 24 18.9465 24 19.3125C24 21.8972 21.8972 24 19.3125 24V24ZM1.95014 18.6631C1.90027 18.8742 1.875 19.0927 1.875 19.3125C1.875 20.8633 3.13669 22.125 4.6875 22.125H19.3125C20.8633 22.125 22.125 20.8633 22.125 19.3125C22.125 19.0928 22.0997 18.8744 22.0499 18.6632L18.3258 3.32025C18.3254 3.31861 18.325 3.31697 18.3246 3.31533C18.1237 2.46727 17.3733 1.875 16.5 1.875H7.5C6.62667 1.875 5.87639 2.46727 5.67539 3.31533C5.67502 3.31697 5.67459 3.31861 5.67422 3.32025L1.95014 18.6631Z"></path>
+                  </svg>
+                  <?= __('Orders'); ?>
+                </a>
+              </li>
+              <li class="innorsub-tab-li"><span class="innor-tab-title">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.875 20C16.4435 20 16.0938 19.6502 16.0938 19.2188V17.6562C16.0938 17.2248 16.4435 16.875 16.875 16.875C17.3065 16.875 17.6562 17.2248 17.6562 17.6562V19.2188C17.6562 19.6502 17.3065 20 16.875 20Z"></path> <path d="M2.78125 20C2.34977 20 2 19.6502 2 19.2188V17.6562C2 17.2248 2.34977 16.875 2.78125 16.875C3.21273 16.875 3.5625 17.2248 3.5625 17.6562V19.2188C3.5625 19.6502 3.21273 20 2.78125 20Z"></path> <path d="M10 20C9.56852 20 9.21875 19.6502 9.21875 19.2188V9.84375C9.21875 9.41227 9.56852 9.0625 10 9.0625C10.4315 9.0625 10.7812 9.41227 10.7812 9.84375V19.2188C10.7812 19.6502 10.4315 20 10 20Z"></path> <path d="M17.6562 10.625V0.78125C17.6562 0.349766 17.3065 0 16.875 0C16.4435 0 16.0938 0.349766 16.0938 0.78125V10.625C14.8014 10.625 13.75 11.6764 13.75 12.9688C13.75 14.2611 14.8014 15.3125 16.0938 15.3125H17.6562C18.9486 15.3125 20 14.2611 20 12.9688C20 11.6764 18.9486 10.625 17.6562 10.625ZM17.6562 13.75H16.0938C15.663 13.75 15.3125 13.3995 15.3125 12.9688C15.3125 12.538 15.663 12.1875 16.0938 12.1875H17.6562C18.087 12.1875 18.4375 12.538 18.4375 12.9688C18.4375 13.3995 18.087 13.75 17.6562 13.75Z"></path> <path d="M3.90625 10.625V0.78125C3.90625 0.349766 3.55648 0 3.125 0C2.69352 0 2.34375 0.349766 2.34375 0.78125V10.625C1.05141 10.625 0 11.6764 0 12.9688C0 14.2611 1.05141 15.3125 2.34375 15.3125H3.90625C5.19859 15.3125 6.25 14.2611 6.25 12.9688C6.25 11.6764 5.19859 10.625 3.90625 10.625ZM3.90625 13.75H2.34375C1.91297 13.75 1.5625 13.3995 1.5625 12.9688C1.5625 12.538 1.91297 12.1875 2.34375 12.1875H3.90625C4.33703 12.1875 4.6875 12.538 4.6875 12.9688C4.6875 13.3995 4.33703 13.75 3.90625 13.75Z"></path> <path d="M10.7812 2.8125V0.78125C10.7812 0.349766 10.4315 0 10 0C9.56852 0 9.21875 0.349766 9.21875 0.78125V2.8125C7.92641 2.8125 6.875 3.86391 6.875 5.15625C6.875 6.44859 7.92641 7.5 9.21875 7.5H10.7812C12.0736 7.5 13.125 6.44859 13.125 5.15625C13.125 3.86391 12.0736 2.8125 10.7812 2.8125ZM10.7812 5.9375H9.21875C8.78797 5.9375 8.4375 5.58703 8.4375 5.15625C8.4375 4.72547 8.78797 4.375 9.21875 4.375H10.7812C11.212 4.375 11.5625 4.72547 11.5625 5.15625C11.5625 5.58703 11.212 5.9375 10.7812 5.9375Z"></path>
+                </svg>                               
+                <?= __('Customize'); ?>
+                <span class="down-icon">
+                  <svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M325.607 4.393C319.75 -1.464 310.252 -1.465 304.394 4.394L165.004 143.787L25.607 4.393C19.75 -1.464 10.252 -1.465 4.39399 4.394C-1.46401 10.252 -1.46401 19.749 4.39399 25.607L154.398 175.607C157.211 178.42 161.026 180 165.004 180C168.982 180 172.798 178.419 175.61 175.606L325.606 25.606C331.465 19.749 331.465 10.251 325.607 4.393Z" fill="currentColor" />
+                  </svg>
+                </span>
+              </span>
+              <ul class="innorsub-tab">
+                <li class="dashboardmenu-list-li" dashboard-tab="tab5"><a href="<?= $block->getButtonSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Button'); ?></a></li>
+                <li class="dashboardmenu-list-li" dashboard-tab="tab9"><a href="<?= $block->getPopupSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Popup'); ?></a></li>
+                <li class="dashboardmenu-list-li" dashboard-tab="tab8"><a href="<?= $block->getQrcodeSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Qr Code'); ?></a></li>
+
+              </ul>
+            </li>
+            <li class="dashboardmenu-list-li" dashboard-tab="tab7">
+              <a href="<?= $block->getThemeSectionUrl(); ?>" class="admin__page-nav-link item-nav">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.10081 25.6085C8.99808 24.7113 9.49226 23.5199 9.4922 22.2539C9.4922 21.3055 11.0332 19.3966 12.6091 18.7438C13.0648 18.5551 13.6862 18.4081 14.0582 18.7801C14.4487 19.1705 14.4891 19.211 14.4905 19.2123C14.4919 19.2138 14.4935 19.2154 14.495 19.2169C15.0908 19.8127 15.8853 20.1408 16.7324 20.1408C17.5793 20.1407 18.3739 19.8126 18.9697 19.2168L26.7683 11.4182C26.9167 11.2698 27 11.0687 27 10.8589C27 10.6491 26.9167 10.4479 26.7683 10.2996L16.7004 0.231688C16.3915 -0.0772292 15.8906 -0.0772292 15.5817 0.231688L7.78309 8.03028C7.1873 8.62607 6.85913 9.42062 6.85913 10.2677C6.85913 11.1147 7.18724 11.9092 7.78383 12.5058C7.78604 12.508 7.81715 12.5391 8.21994 12.9418C8.37793 13.0998 8.4516 13.2937 8.4516 13.552C8.4516 15.1039 5.98981 17.5078 4.74613 17.5078C2.12925 17.5078 0.000105468 19.6368 0 22.2538V22.2539C5.27342e-05 23.52 0.494225 24.7114 1.3915 25.6085C2.28877 26.5058 3.48014 26.9999 4.74613 26.9999C6.01212 26.9999 7.20359 26.5058 8.10081 25.6085ZM16.141 1.90969L25.0903 10.8589L21.7343 14.215L12.785 5.26559L16.141 1.90969ZM2.51015 24.4898C1.91167 23.8914 1.58208 23.0973 1.58203 22.2539C1.58213 20.5092 3.00152 19.0898 4.74613 19.0898C5.77465 19.0898 7.06701 18.3899 8.20327 17.2173C8.75361 16.6494 10.0336 15.1555 10.0336 13.552C10.0336 12.8757 9.79326 12.2778 9.33854 11.8231C8.93812 11.4227 8.90327 11.3879 8.90168 11.3863C8.60474 11.0893 8.44121 10.6921 8.44121 10.2677C8.44121 9.84323 8.60479 9.44593 8.90174 9.14893L11.6664 6.38424L20.6157 15.3336L17.851 18.0982C17.554 18.3952 17.1567 18.5587 16.7323 18.5588C16.3079 18.5588 15.9106 18.3952 15.6136 18.0982C15.5972 18.0817 15.5217 18.0061 15.1768 17.6613C14.4047 16.8891 13.2777 16.7545 12.0037 17.2822C10.1106 18.0663 7.91018 20.4088 7.91018 22.2538C7.91018 23.0973 7.58064 23.8914 6.98216 24.4898C6.38368 25.0883 5.58961 25.4178 4.74613 25.4178C3.9027 25.4179 3.10857 25.0883 2.51015 24.4898Z">
+                  </path>
+                </svg>
+                <?= __('Occasion'); ?>
+              </a>
+            </li>
+            <li class="innorsub-tab-li"><span class="innor-tab-title">
+                <svg class="Settings" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="3.25" stroke-width="1.5" style="stroke: currentColor;"></circle> <path d="M10.4286 1V4.42857L8.71429 5.28571L6.14286 2.71429L2.71429 6.14286L5.28571 8.71429L4.42857 10.4286H1V15.5714H4.42857L5.28571 17.2857L2.71429 19.8571L6.14286 23.2857L8.71429 20.7143L10.4286 21.5714V25H15.5714V21.5714L17.2857 20.7143L19.8571 23.2857L23.2857 19.8571L20.7143 17.2857L21.5714 15.5714H25V10.4286H21.5714L20.7143 8.71429L23.2857 6.14286L19.8571 2.71429L17.2857 5.28571L15.5714 4.42857V1H10.4286Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor;fill: none !important;"></path>
+                </svg>
+              <?= __('Settings'); ?> 
+              <span class="down-icon">
+                <svg viewBox="0 0 330 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M325.607 4.393C319.75 -1.464 310.252 -1.465 304.394 4.394L165.004 143.787L25.607 4.393C19.75 -1.464 10.252 -1.465 4.39399 4.394C-1.46401 10.252 -1.46401 19.749 4.39399 25.607L154.398 175.607C157.211 178.42 161.026 180 165.004 180C168.982 180 172.798 178.419 175.61 175.606L325.606 25.606C331.465 19.749 331.465 10.251 325.607 4.393Z" fill="currentColor" />
+                </svg>
+              </span>
+            </span>
+            <ul class="innorsub-tab">
+              <li class="dashboardmenu-list-li" dashboard-tab="tab2"><a href="<?= $block->getCampaignsSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Campaigns'); ?></a></li>
+              <li class="dashboardmenu-list-li" dashboard-tab="tab1"><a href="<?= $block->getAccountSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Account'); ?></a></li>
+              <li class="dashboardmenu-list-li" dashboard-tab="tab4"><a href="<?= $block->getFaqSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Faqs & tips'); ?></a></li>
+              <li class="dashboardmenu-list-li" dashboard-tab="tab10"><a href="<?= $block->getContactSectionUrl(); ?>" class="admin__page-nav-link item-nav"><?= __('Contact Us'); ?></a></li>
+              <li class="dashboardmenu-list-li" dashboard-tab="tab10"><a href="<?= $block->getLogoutActionUrl() ?>" class="admin__page-nav-link item-nav"><?= __('Log Out'); ?></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col right-col">
+      <div class="col-wrap">
+        <div class="dashboardbody-text">
+          <div class="dashboardbody current" id="tab11">
+            <div class="dashboardbody-wrap">
+              <div class="dashboard-tab-section">
+                <div class="dashboard-tab-wrap">
+                  <div class="col section-col">
+                    <a href="<?= $block->getButtonSectionUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('Edit your button design & in store placement'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('Manage your store’s call to action location and design'); ?></span>
+                      </span>
+                      <span class="tab-image">
+                        <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/EdityourButton.png'); ?>" alt="">
+                      </span>
+                    </a>
+                  </div>
+                  <div class="col section-col">
+                    <a href="<?= $block->geOrdersUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('Video gift orders'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('View and manage your store’s video gift message orders'); ?></span>
+                      </span>
+                      <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/Orders.png'); ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="col section-col">
+                    <a href="<?= $block->getPopupSectionUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('Customize'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('Customize Your IN-Store Pop UP'); ?></span>
+                      </span>
+                      <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/customize.png'); ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="col section-col">
+                    <a href="<?= $block->getQrcodeSectionUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('Advance app personalization'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('Customize your QR Code & Occasion'); ?></span>
+                      </span>
+                      <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/advance-app-personalization.png'); ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="col section-col">
+                    <a href="<?= $block->geConfigUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('Statistics'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('Keep track of your store analytics'); ?></span>
+                      </span>
+                      <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/statisticsSection.jpg'); ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="col section-col">
+                    <a href="<?= $block->getFaqSectionUrl(); ?>">
+                      <span class="tab-head">
+                        <span class="tab-section-title"><?= __('FAQs & Tips'); ?></span>
+                        <span class="tab-section-subtitle"><?= __('Need Help? We Got You Covered'); ?></span>
+                      </span>
+                      <img class="dashboard-feature-image" src="<?php echo $block->getViewFileUrl('Ec_Qr::images/faqSection.jpg'); ?>" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<?php endif; ?>
