@@ -1,4 +1,4 @@
-# [Magento Video Gift Messaging Virtual Products Extension](https://marketplace.magento.com/ec-qr.html) by Emotional Commerce
+# [Magento Video Gift Messaging Virtual Products Extension](https://marketplace.magento.com/ec-qr.html) by [Emotional Commerce](https://emotionalcommerce.com/) 
 
 Magento 2 Cart is an extension that allows you to modify your cart.
 
